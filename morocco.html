@@ -1,135 +1,143 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Higher Education in Morocco</title>
-
-<style>
-body{
-    font-family: Arial, sans-serif;
-    margin:0;
-    background:#f4f6f9;
-}
-
-header{
-    background:#0b3d91;
-    color:white;
-    text-align:center;
-    padding:25px;
-}
-
-.container{
-    width:90%;
-    margin:auto;
-    padding:20px;
-}
-
-.school{
-    background:white;
-    margin:15px 0;
-    padding:15px;
-    border-radius:10px;
-    box-shadow:0 2px 8px rgba(0,0,0,0.1);
-    transition:0.3s;
-}
-
-.school:hover{
-    transform:scale(1.01);
-}
-
-.name{
-    font-size:18px;
-    font-weight:bold;
-    color:#0b3d91;
-}
-
-.info{
-    margin-top:8px;
-    color:#333;
-    line-height:1.6;
-}
-
-footer{
-    text-align:center;
-    padding:20px;
-    background:#0b3d91;
-    color:white;
-    margin-top:30px;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top 10 Universities in Morocco - Hijra Acc</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; line-height: 1.6; color: #333; background: #f8f9fa; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        
+        /* Header */
+        header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 1rem 0; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .nav { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.8rem; font-weight: 700; }
+        .back-btn { background: rgba(255,255,255,0.2); color: white; padding: 10px 20px; border-radius: 25px; text-decoration: none; transition: 0.3s; }
+        .back-btn:hover { background: rgba(255,255,255,0.3); }
+        
+        /* Hero */
+        .hero { background: white; padding: 60px 0; text-align: center; margin-bottom: 40px; }
+        .hero h1 { font-size: 2.5rem; color: #2c3e50; margin-bottom: 15px; }
+        .hero p { font-size: 1.1rem; color: #666; max-width: 600px; margin: 0 auto; }
+        
+        /* University Cards */
+        .universities { display: grid; gap: 25px; margin-bottom: 60px; }
+        .uni-card { background: white; border-radius: 15px; padding: 30px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); transition: 0.3s; border-left: 5px solid #667eea; }
+        .uni-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
+        .uni-card h3 { color: #667eea; font-size: 1.4rem; margin-bottom: 10px; }
+        .uni-card .location { color: #e74c3c; margin-bottom: 10px; font-weight: 600; }
+        .uni-card .location i { margin-right: 8px; }
+        .uni-card .details { color: #555; margin-bottom: 15px; }
+        .uni-card .website { display: inline-block; background: #667eea; color: white; padding: 8px 20px; border-radius: 20px; text-decoration: none; font-size: 0.9rem; transition: 0.3s; }
+        .uni-card .website:hover { background: #764ba2; }
+        
+        /* Footer */
+        footer { background: #2c3e50; color: white; text-align: center; padding: 30px 0; margin-top: 60px; }
+        
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .uni-card { padding: 20px; }
+        }
+    </style>
 </head>
-
 <body>
+    <header>
+        <div class="container nav">
+            <div class="logo"><i class="fas fa-graduation-cap"></i> Hijra Acc</div>
+            <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Home</a>
+        </div>
+    </header>
 
-<header>
-<h1>🎓 Higher Education Institutions in Morocco</h1>
-<p>50 Major Universities & Higher Schools</p>
-</header>
+    <section class="hero">
+        <div class="container">
+            <h1>Top 10 Universities in Morocco</h1>
+            <p>Discover the best higher education institutions in Morocco for international students. Quality education, affordable costs, and globally recognized degrees.</p>
+        </div>
+    </section>
 
-<div class="container">
+    <div class="container">
+        <div class="universities">
+            
+            <div class="uni-card">
+                <h3>1. Mohammed V University</h3>
+                <div class="location"><i class="fas fa-map-marker-alt"></i> Rabat | Oldest and largest university</div>
+                <div class="details">Faculties: Medicine, Law, Sciences, Engineering, Economics. Over 90,000 students. Ranked #1 in Morocco.</div>
+                <a href="http://www.um5.ac.ma" target="_blank" class="website">Visit Website <i class="fas fa-external-link-alt"></i></a>
+            </div>
 
-<div class="school">
-<div class="name">1. Mohammed V University - Rabat</div>
-<div class="info">📍 Rabat | 📞 +212-537272750 | Public University - Human Sciences, Law, Engineering</div>
-</div>
+            <div class="uni-card">
+                <h3>2. Cadi Ayyad University</h3>
+                <div class="location"><i class="fas fa-map-marker-alt"></i> Marrakech | Top research university</div>
+                <div class="details">Strong in Sciences, Technology, Medicine, and Management. Known for innovation and international partnerships.</div>
+                <a href="https://www.uca.ma" target="_blank" class="website">Visit Website <i class="fas fa-external-link-alt"></i></a>
+            </div>
 
-<div class="school">
-<div class="name">2. Hassan II University - Casablanca</div>
-<div class="info">📍 Casablanca | Large public university with multiple faculties and schools</div>
-</div>
+            <div class="uni-card">
+                <h3>3. Hassan II University</h3>
+                <div class="location"><i class="fas fa-map-marker-alt"></i> Casablanca | Business & Engineering hub</div>
+                <div class="details">Leading university in Economics, Management, and Engineering. Located in Morocco's economic capital.</div>
+                <a href="http://www.univh2c.ma" target="_blank" class="website">Visit Website <i class="fas fa-external-link-alt"></i></a>
+            </div>
 
-<div class="school">
-<div class="name">3. Cadi Ayyad University</div>
-<div class="info">📍 Marrakech | Engineering, Sciences, Economics</div>
-</div>
+            <div class="uni-card">
+                <h3>4. Abdelmalek Essaâdi University</h3>
+                <div class="location"><i class="fas fa-map-marker-alt"></i> Tetouan - Tangier | Northern Morocco</div>
+                <div class="details">Specialized in Science, Technology, Law, and Literature. Strategic location near Europe.</div>
+                <a href="https://www.uae.ma" target="_blank" class="website">Visit Website <i class="fas fa-external-link-alt"></i></a>
+            </div>
 
-<div class="school">
-<div class="name">4. Abdelmalek Essaadi University</div>
-<div class="info">📍 Tetouan - Tangier | Science, Technology, Law</div>
-</div>
+            <div class="uni-card">
+                <h3>5. Ibn Zohr University</h3>
+                <div class="location"><i class="fas fa-map-marker-alt"></i> Agadir | Southern Morocco leader</div>
+                <div class="details">Multidisciplinary university with 8 faculties. Strong in Tourism, Agriculture, and Sciences.</div>
+                <a href="https://www.uiz.ac.ma" target="_blank" class="website">Visit Website <i class="fas fa-external-link-alt"></i></a>
+            </div>
 
-<div class="school">
-<div class="name">5. Ibn Zohr University</div>
-<div class="info">📍 Agadir | Multidisciplinary university in south Morocco</div>
-</div>
+            <div class="uni-card">
+                <h3>6. Moulay Ismail University</h3>
+                <div class="location"><i class="fas fa-map-marker-alt"></i> Meknes | Imperial city</div>
+                <div class="details">Excellence in Sciences, Economics, and Engineering. Beautiful historic campus.</div>
+                <a href="http://www.umi.ac.ma" target="_blank" class="website">Visit Website <i class="fas fa-external-link-alt"></i></a>
+            </div>
 
-<div class="school">
-<div class="name">6. Moulay Ismail University</div>
-<div class="info">📍 Meknes | Sciences, Economics, Engineering</div>
-</div>
+            <div class="uni-card">
+                <h3>7. Sidi Mohamed Ben Abdellah University</h3>
+                <div class="location"><i class="fas fa-map-marker-alt"></i> Fez | Cultural capital</div>
+                <div class="details">Prestigious in Law, Medicine, and Islamic Studies. One of the oldest educational centers.</div>
+                <a href="http://www.usmba.ac.ma" target="_blank" class="website">Visit Website <i class="fas fa-external-link-alt"></i></a>
+            </div>
 
-<div class="school">
-<div class="name">7. Sidi Mohamed Ben Abdellah University</div>
-<div class="info">📍 Fez | Law, Medicine, Sciences</div>
-</div>
+            <div class="uni-card">
+                <h3>8. Al Akhawayn University</h3>
+                <div class="location"><i class="fas fa-map-marker-alt"></i> Ifrane | Private American-style</div>
+                <div class="details">English-taught programs. Liberal arts education. Most expensive but highest international ranking.</div>
+                <a href="http://www.aui.ma" target="_blank" class="website">Visit Website <i class="fas fa-external-link-alt"></i></a>
+            </div>
 
-<div class="school">
-<div class="name">8. Al Akhawayn University</div>
-<div class="info">📍 Ifrane | Private American-style university</div>
-</div>
+            <div class="uni-card">
+                <h3>9. Mohammed VI Polytechnic University</h3>
+                <div class="location"><i class="fas fa-map-marker-alt"></i> Benguerir | Research & Innovation</div>
+                <div class="details">New modern university focused on Engineering, AI, and Sustainable Development. World-class facilities.</div>
+                <a href="https://www.um6p.ma" target="_blank" class="website">Visit Website <i class="fas fa-external-link-alt"></i></a>
+            </div>
 
-<div class="school">
-<div class="name">9. Mohammed VI Polytechnic University</div>
-<div class="info">📍 Benguerir | Engineering, Innovation, Research</div>
-</div>
+            <div class="uni-card">
+                <h3>10. International University of Rabat</h3>
+                <div class="location"><i class="fas fa-map-marker-alt"></i> Rabat | Private international</div>
+                <div class="details">Partnerships with foreign universities. Programs in Engineering, Business, Political Science.</div>
+                <a href="https://www.uir.ac.ma" target="_blank" class="website">Visit Website <i class="fas fa-external-link-alt"></i></a>
+            </div>
 
-<div class="school">
-<div class="name">10. Université Internationale de Rabat</div>
-<div class="info">📍 Rabat | Private university - Engineering & Business</div>
-</div>
+        </div>
+    </div>
 
-<!-- نكملو حتى 50 -->
-<div class="school"><div class="name">11. ...</div><div class="info">Add more universities here</div></div>
-<div class="school"><div class="name">12. ...</div><div class="info">Add more universities here</div></div>
-<div class="school"><div class="name">13. ...</div><div class="info">Add more universities here</div></div>
-<div class="school"><div class="name">14. ...</div><div class="info">Add more universities here</div></div>
-<div class="school"><div class="name">15. ...</div><div class="info">Add more universities here</div></div>
-
-</div>
-
-<footer>
-© 2026 Morocco Education Platform
-</footer>
-
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Hijra Acc. All rights reserved. | <a href="index.html" style="color: #667eea;">Home</a> | <a href="contact.html" style="color: #667eea;">Contact</a></p>
+        </div>
+    </footer>
 </body>
 </html>
