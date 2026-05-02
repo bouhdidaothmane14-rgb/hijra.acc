@@ -10,59 +10,59 @@
         :root {--primary: #0f172a; --secondary: #1e40af; --accent: #dc2626; --gold: #ca8a04; --casa: #0284c7; --rabat: #16a34a; --light: #f8fafc; --card: #ffffff;}
         * {margin: 0; padding: 0; box-sizing: border-box;}
         body {font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.7; color: #1e293b; background: var(--light);}
-    .navbar {background: var(--primary); padding: 20px 0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1);}
-    .nav-container {max-width: 1400px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center;}
-    .logo {color: white; font-size: 1.6rem; font-weight: 800; text-decoration: none;}
-    .logo i {color: var(--gold);}
-    .back-btn {color: white; text-decoration: none; font-weight: 600; padding: 10px 20px; border: 2px solid white; border-radius: 50px; transition: 0.3s;}
-    .back-btn:hover {background: white; color: var(--primary);}
-    .hero {background: linear-gradient(135deg, rgba(15,23,42,0.95), rgba(30,64,175,0.9)), url('https://images.unsplash.com/photo-1569336415962-a4bd9f69cd83?q=80&w=2031') center/cover; color: white; padding: 120px 0 80px; text-align: center;}
-    .hero h1 {font-size: 4rem; margin-bottom: 20px; font-weight: 900; text-shadow: 2px 2px 10px rgba(0,0,0,0.3);}
-    .hero p {font-size: 1.4rem; opacity: 0.95; max-width: 900px; margin: 0 auto 40px;}
-    .city-tabs {display: flex; justify-content: center; gap: 20px; margin: 50px 0 0; flex-wrap: wrap;}
-    .city-btn {padding: 18px 45px; border: none; border-radius: 50px; font-weight: 800; font-size: 1.2rem; cursor: pointer; transition: all 0.4s ease; box-shadow: 0 5px 20px rgba(0,0,0,0.15);}
-    .city-btn.casa {background: white; color: var(--casa); border: 3px solid var(--casa);}
-    .city-btn.rabat {background: white; color: var(--rabat); border: 3px solid var(--rabat);}
-    .city-btn.active.casa {background: var(--casa); color: white; transform: scale(1.08);}
-    .city-btn.active.rabat {background: var(--rabat); color: white; transform: scale(1.08);}
-    .container {max-width: 1400px; margin: 0 auto; padding: 0 20px;}
-    .section {padding: 70px 0;}
-    .section-header {text-align: center; margin-bottom: 60px;}
-    .section-header h2 {font-size: 3rem; margin-bottom: 15px; font-weight: 900;}
-    .section-header h2.casa-title {color: var(--casa);}
-    .section-header h2.rabat-title {color: var(--rabat);}
-    .section-header p {font-size: 1.2rem; color: #475569; max-width: 800px; margin: 0 auto;}
-    .category-title {font-size: 2.2rem; margin: 60px 0 35px; font-weight: 800; display: flex; align-items: center; gap: 15px;}
-    .category-title.casa-color {color: var(--casa); border-left: 6px solid var(--casa); padding-left: 20px;}
-    .category-title.rabat-color {color: var(--rabat); border-left: 6px solid var(--rabat); padding-left: 20px;}
-    .grid {display: grid; grid-template-columns: repeat(auto-fit, minmax(420px, 1fr)); gap: 40px;}
-    .card-3d {background: var(--card); border-radius: 25px; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.12); transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative;}
-    .card-3d:hover {transform: translateY(-15px) scale(1.02); box-shadow: 0 30px 60px rgba(0,0,0,0.2);}
-    .card-img {height: 260px; background-size: cover; background-position: center; position: relative;}
-    .card-img::after {content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 80px; background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);}
-    .city-badge {position: absolute; top: 20px; right: 20px; padding: 10px 20px; border-radius: 50px; font-weight: 800; font-size: 1rem; color: white; z-index: 2;}
-    .badge-casa {background: var(--casa);}
-    .badge-rabat {background: var(--rabat);}
-    .type-badge {position: absolute; top: 20px; left: 20px; background: var(--gold); color: var(--primary); padding: 10px 20px; border-radius: 50px; font-weight: 800; font-size: 0.9rem; z-index: 2;}
-    .card-content {padding: 35px;}
-    .card-content h3 {color: var(--primary); font-size: 1.8rem; margin-bottom: 12px; font-weight: 900;}
-    .address {color: #475569; margin-bottom: 20px; display: flex; align-items: start; gap: 10px; font-size: 1rem; line-height: 1.6;}
-    .address i {color: var(--accent); margin-top: 3px;}
-    .stats {display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 25px 0;}
-    .stat {background: var(--light); padding: 15px; border-radius: 12px; text-align: center; border: 2px solid #e2e8f0;}
-    .stat strong {color: var(--primary); display: block; font-size: 1.4rem; font-weight: 900;}
-    .stat span {font-size: 0.9rem; color: #64748b; font-weight: 600;}
-    .programs h4 {color: var(--primary); margin: 25px 0 15px; font-size: 1.1rem; font-weight: 700;}
-    .tag {display: inline-block; background: #dbeafe; color: #1e40af; padding: 8px 16px; border-radius: 25px; font-size: 0.9rem; margin: 5px 5px 0; font-weight: 600;}
-    .card-footer {display: flex; justify-content: space-between; align-items: center; margin-top: 30px; padding-top: 25px; border-top: 2px solid #e2e8f0;}
-    .btn-visit {background: linear-gradient(135deg, var(--accent), #b91c1c); color: white; padding: 14px 30px; border-radius: 50px; text-decoration: none; font-weight: 800; transition: all 0.3s ease; box-shadow: 0 5px 15px rgba(220,38,38,0.3);}
-    .btn-visit:hover {transform: scale(1.08); box-shadow: 0 8px 25px rgba(220,38,38,0.4);}
-    .source {font-size: 0.85rem; color: #64748b; font-weight: 600;}
-    .source a {color: var(--secondary); text-decoration: none;}
-    .source a:hover {text-decoration: underline;}
-    .alert-box {background: linear-gradient(135deg, #f0f9ff, #e0f2fe); border-left: 6px solid var(--casa); padding: 35px; border-radius: 20px; margin: 60px 0; box-shadow: 0 10px 30px rgba(0,0,0,0.08);}
-    .alert-box h3 {color: #0c4a6e; margin-bottom: 20px; font-size: 1.5rem; font-weight: 800;}
-    .alert-box p {font-size: 1.05rem; line-height: 1.8;}
+        .navbar {background: var(--primary); padding: 20px 0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1);}
+        .nav-container {max-width: 1400px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center;}
+        .logo {color: white; font-size: 1.6rem; font-weight: 800; text-decoration: none;}
+        .logo i {color: var(--gold);}
+        .back-btn {color: white; text-decoration: none; font-weight: 600; padding: 10px 20px; border: 2px solid white; border-radius: 50px; transition: 0.3s;}
+        .back-btn:hover {background: white; color: var(--primary);}
+        .hero {background: linear-gradient(135deg, rgba(15,23,42,0.95), rgba(30,64,175,0.9)), url('https://images.unsplash.com/photo-1569336415962-a4bd9f69cd83?q=80&w=2031') center/cover; color: white; padding: 120px 0 80px; text-align: center;}
+        .hero h1 {font-size: 4rem; margin-bottom: 20px; font-weight: 900; text-shadow: 2px 2px 10px rgba(0,0,0,0.3);}
+        .hero p {font-size: 1.4rem; opacity: 0.95; max-width: 900px; margin: 0 auto 40px;}
+        .city-tabs {display: flex; justify-content: center; gap: 20px; margin: 50px 0 0; flex-wrap: wrap;}
+        .city-btn {padding: 18px 45px; border: none; border-radius: 50px; font-weight: 800; font-size: 1.2rem; cursor: pointer; transition: all 0.4s ease; box-shadow: 0 5px 20px rgba(0,0,0,0.15);}
+        .city-btn.casa {background: white; color: var(--casa); border: 3px solid var(--casa);}
+        .city-btn.rabat {background: white; color: var(--rabat); border: 3px solid var(--rabat);}
+        .city-btn.active.casa {background: var(--casa); color: white; transform: scale(1.08);}
+        .city-btn.active.rabat {background: var(--rabat); color: white; transform: scale(1.08);}
+        .container {max-width: 1400px; margin: 0 auto; padding: 0 20px;}
+        .section {padding: 70px 0;}
+        .section-header {text-align: center; margin-bottom: 60px;}
+        .section-header h2 {font-size: 3rem; margin-bottom: 15px; font-weight: 900;}
+        .section-header h2.casa-title {color: var(--casa);}
+        .section-header h2.rabat-title {color: var(--rabat);}
+        .section-header p {font-size: 1.2rem; color: #475569; max-width: 800px; margin: 0 auto;}
+        .category-title {font-size: 2.2rem; margin: 60px 0 35px; font-weight: 800; display: flex; align-items: center; gap: 15px;}
+        .category-title.casa-color {color: var(--casa); border-left: 6px solid var(--casa); padding-left: 20px;}
+        .category-title.rabat-color {color: var(--rabat); border-left: 6px solid var(--rabat); padding-left: 20px;}
+        .grid {display: grid; grid-template-columns: repeat(auto-fit, minmax(420px, 1fr)); gap: 40px;}
+        .card-3d {background: var(--card); border-radius: 25px; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.12); transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative;}
+        .card-3d:hover {transform: translateY(-15px) scale(1.02); box-shadow: 0 30px 60px rgba(0,0,0,0.2);}
+        .card-img {height: 260px; background-size: cover; background-position: center; position: relative;}
+        .card-img::after {content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 80px; background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);}
+        .city-badge {position: absolute; top: 20px; right: 20px; padding: 10px 20px; border-radius: 50px; font-weight: 800; font-size: 1rem; color: white; z-index: 2;}
+        .badge-casa {background: var(--casa);}
+        .badge-rabat {background: var(--rabat);}
+        .type-badge {position: absolute; top: 20px; left: 20px; background: var(--gold); color: var(--primary); padding: 10px 20px; border-radius: 50px; font-weight: 800; font-size: 0.9rem; z-index: 2;}
+        .card-content {padding: 35px;}
+        .card-content h3 {color: var(--primary); font-size: 1.8rem; margin-bottom: 12px; font-weight: 900;}
+        .address {color: #475569; margin-bottom: 20px; display: flex; align-items: start; gap: 10px; font-size: 1rem; line-height: 1.6;}
+        .address i {color: var(--accent); margin-top: 3px;}
+        .stats {display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 25px 0;}
+        .stat {background: var(--light); padding: 15px; border-radius: 12px; text-align: center; border: 2px solid #e2e8f0;}
+        .stat strong {color: var(--primary); display: block; font-size: 1.4rem; font-weight: 900;}
+        .stat span {font-size: 0.9rem; color: #64748b; font-weight: 600;}
+        .programs h4 {color: var(--primary); margin: 25px 0 15px; font-size: 1.1rem; font-weight: 700;}
+        .tag {display: inline-block; background: #dbeafe; color: #1e40af; padding: 8px 16px; border-radius: 25px; font-size: 0.9rem; margin: 5px 5px 0; font-weight: 600;}
+        .card-footer {display: flex; justify-content: space-between; align-items: center; margin-top: 30px; padding-top: 25px; border-top: 2px solid #e2e8f0;}
+        .btn-visit {background: linear-gradient(135deg, var(--accent), #b91c1c); color: white; padding: 14px 30px; border-radius: 50px; text-decoration: none; font-weight: 800; transition: all 0.3s ease; box-shadow: 0 5px 15px rgba(220,38,38,0.3);}
+        .btn-visit:hover {transform: scale(1.08); box-shadow: 0 8px 25px rgba(220,38,38,0.4);}
+        .source {font-size: 0.85rem; color: #64748b; font-weight: 600;}
+        .source a {color: var(--secondary); text-decoration: none;}
+        .source a:hover {text-decoration: underline;}
+        .alert-box {background: linear-gradient(135deg, #f0f9ff, #e0f2fe); border-left: 6px solid var(--casa); padding: 35px; border-radius: 20px; margin: 60px 0; box-shadow: 0 10px 30px rgba(0,0,0,0.08);}
+        .alert-box h3 {color: #0c4a6e; margin-bottom: 20px; font-size: 1.5rem; font-weight: 800;}
+        .alert-box p {font-size: 1.05rem; line-height: 1.8;}
         footer {background: var(--primary); color: white; padding: 60px 0; text-align: center; margin-top: 100px;}
         @media (max-width: 768px) {.hero h1 {font-size: 2.8rem;}.grid {grid-template-columns: 1fr;}.city-tabs {flex-direction: column; align-items: center;}.category-title {font-size: 1.8rem;}}
     </style>
@@ -88,7 +88,6 @@
 
     <section class="section">
         <div class="container">
-            <!-- CASABLANCA -->
             <div id="casablanca" class="city-content">
                 <div class="section-header">
                     <h2 class="casa-title">Casablanca - 15+ Institutions</h2>
@@ -135,7 +134,8 @@
                             <div class="address"><i class="fas fa-map-marker-alt"></i> Km 7, Route d'El Jadida, B.P 8108, Casablanca</div>
                             <div class="stats">
                                 <div class="stat"><strong>1,800</strong><span>Students</span></div>
-                                <div class="stat"><strong>1971</strong><span>Founded</span></div><div class="stat"><strong>Top 3</strong><span>Engineering</span></div>
+                                <div class="stat"><strong>1971</strong><span>Founded</span></div>
+                                <div class="stat"><strong>Top 3</strong><span>Engineering</span></div>
                                 <div class="stat"><strong>$0</strong><span>Tuition</span></div>
                             </div>
                             <div class="programs">
@@ -177,440 +177,461 @@
                     <div class="card-3d">
                         <div class="card-img" style="background-image: url('https://encgcasa.ac.ma/wp-content/uploads/2021/09/encg-casablanca.jpg');">
                             <div class="type-badge">Business School</div>
-                            <div class="city-badge badge-casa">Casablanca</div>
-                        </div>
-                        <div class="card-content">
-                            <h3>ENCG Casablanca</h3>
-                            <div class="address"><i class="fas fa-map-marker-alt"></i> Beau Site, Ain Sebaâ, B.P 2725, Casablanca</div>
-                            <div class="stats">
-                                <div class="stat"><strong>2,500</strong><span>Students</span></div>
-                                <div class="stat"><strong>1994</strong><span>Founded</span></div>
-                                <div class="stat"><strong>5 years</strong><span>Master</span></div>
-                                <div class="stat"><strong>$0</strong><span>Tuition</span></div>
-                            </div>
-                            <div class="programs">
-                                <h4>Master Degrees:</h4>
-                                <span class="tag">Finance & Accounting</span><span class="tag">Audit & Control</span><span class="tag">Marketing</span><span class="tag">Management</span><span class="tag">International Trade</span>
-                            </div>
-                            <div class="card-footer">
-                                <a href="https://encgcasa.ac.ma" target="_blank" class="btn-visit">Official Site</a>
-                                <div class="source">Source: <a href="https://encgcasa.ac.ma" target="_blank">ENCG Casa 2026</a></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <h3 class="category-title casa-color"><i class="fas fa-tools"></i> OFPPT & CMC Casablanca</h3>
-                <div class="grid">
-                    <div class="card-3d">
-                        <div class="card-img" style="background-image: url('https://cdm.ofppt.ma/sites/default/files/2022-05/cmc-casa.jpg');">
-                            <div class="type-badge">CMC - NEW</div>
-                            <div class="city-badge badge-casa">Casablanca</div>
-                        </div>
-                        <div class="card-content">
-                            <h3>Cité des Métiers et Compétences Casa-Settat</h3>
-                            <div class="address"><i class="fas fa-map-marker-alt"></i> Nouaceur, Route de l'Aéroport Mohammed V, Casablanca</div>
-                            <div class="stats">
-                                <div class="stat"><strong>4,000</strong><span>Capacity/Year</span></div>
-                                <div class="stat"><strong>2023</strong><span>Opened</span></div>
-                                <div class="stat"><strong>90%</strong><span>Job Rate</span></div>
-                                <div class="stat"><strong>$0</strong><span>Tuition</span></div>
-                            </div>
-                            <div class="programs">
-                                <h4>10 Poles of Excellence:</h4>
-                                <span class="tag">Digital & AI</span><span class="tag">Aerospace Industry</span><span class="tag">Automotive</span><span class="tag">Health Services</span><span class="tag">Tourism & Hotel</span><span class="tag">Green Energy</span><span class="tag">Logistics</span><span class="tag">Agribusiness</span>
-                            </div>
-                            <div class="card-footer">
-                                <a href="https://cdm.ofppt.ma/fr/cmc-casablanca-settat" target="_blank" class="btn-visit">CMC Portal</a>
-                                <div class="source">Source: <a href="https://cdm.ofppt.ma" target="_blank">CMC 2026</a></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card-3d">
-                        <div class="card-img" style="background-image: url('https://www.ofppt.ma/sites/default/files/styles/slider/public/2022-03/ista-hay-hassani.jpg');">
-                            <div class="type-badge">OFPPT ISTA</div>
-                            <div class="city-badge badge-casa">Casablanca</div>
-                        </div>
-                        <div class="card-content">
-                            <h3>ISTA Hay Hassani</h3>
-                            <div class="address"><i class="fas fa-map-marker-alt"></i> Boulevard Abdelhadi Boutaleb, Hay Hassani, Casablanca</div>
-                            <div class="stats">
-                                <div class="stat"><strong>1,500</strong><span>Students</span></div>
-                                <div class="stat"><strong>2 years</strong><span>TS Diploma</span></div>
-                                <div class="stat"><strong>80%</strong><span>Job Rate</span></div>
-                                <div class="stat"><strong>$0</strong><span>Tuition</span></div>
-                            </div>
-                            <div class="programs">
-                                <h4>Top TS Programs:</h4>
-                                <span class="tag">Développement Digital</span><span class="tag">Réseaux Info</span><span class="tag">Comptabilité</span><span class="tag">Gestion Entreprises</span><span class="tag">Électronique</span>
-                            </div>
-                            <div class="card-footer">
-                                <a href="https://www.ofppt.ma/fr/etablissement/ista-hay-hassani" target="_blank" class="btn-visit">Details</a>
-                                <div class="source">Source: <a href="https://www.ofppt.ma" target="_blank">OFPPT 2026</a></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card-3d">
-                        <div class="card-img" style="background-image: url('https://www.ofppt.ma/sites/default/files/2021-09/ista-ain-sebaa.jpg');">
-                            <div class="type-badge">OFPPT ISTA</div>
-                            <div class="city-badge badge-casa">Casablanca</div>
-                        </div>
-                        <div class="card-content">
-                            <h3>ISTA Ain Sebaâ</h3>
-                            <div class="address"><i class="fas fa-map-marker-alt"></i> Route de Rabat, Ain Sebaâ, Casablanca</div>
-                            <div class="stats">
-                                <div class="stat"><strong>1,200</strong><span>Students</span></div><div class="stat"><strong>2 years</strong><span>TS Diploma</span></div>
-                                <div class="stat"><strong>75%</strong><span>Job Rate</span></div>
-                                <div class="stat"><strong>$0</strong><span>Tuition</span></div>
-                            </div>
-                            <div class="programs">
-                                <h4>Industrial Programs:</h4>
-                                <span class="tag">Électromécanique</span><span class="tag">Froid Industriel</span><span class="tag">Maintenance Auto</span><span class="tag">Chaudronnerie</span><span class="tag">Menuiserie Alu</span>
-                            </div>
-                            <div class="card-footer">
-                                <a href="https://www.ofppt.ma/fr/etablissement/ista-ain-sebaa" target="_blank" class="btn-visit">Details</a>
-                                <div class="source">Source: <a href="https://www.ofppt.ma" target="_blank">OFPPT 2026</a></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- RABAT -->
-            <div id="rabat" class="city-content" style="display:none;">
-                <div class="section-header">
-                    <h2 class="rabat-title">Rabat - 10+ Institutions</h2>
-                    <p>Capital city with #1 university UM5, EMI, INPT, ENCG & OFPPT centers</p>
-                </div>
-
-                <h3 class="category-title rabat-color"><i class="fas fa-university"></i> University</h3>
-                <div class="grid">
-                    <div class="card-3d">
-                        <div class="card-img" style="background-image: url('https://www.um5.ac.ma/um5r/sites/default/files/images/um5r-rabat.jpg');">
-                            <div class="type-badge">University</div>
-                            <div class="city-badge badge-rabat">Rabat</div>
-                        </div>
-                        <div class="card-content">
-                            <h3>Mohammed V University of Rabat</h3>
-                            <div class="address"><i class="fas fa-map-marker-alt"></i> Avenue Ibn Battouta, B.P. 1014, Agdal, Rabat</div>
-                            <div class="stats">
-                                <div class="stat"><strong>96,000+</strong><span>Students</span></div>
-                                <div class="stat"><strong>1957</strong><span>Founded</span></div>
-                                <div class="stat"><strong>#1</strong><span>Morocco</span></div>
-                                <div class="stat"><strong>$0</strong><span>Tuition</span></div>
-                            </div>
-                            <div class="programs">
-                                <h4>Main Faculties in Rabat:</h4>
-                                <span class="tag">Medicine Rabat</span><span class="tag">Pharmacy</span><span class="tag">Dentistry</span><span class="tag">FSJES Agdal</span><span class="tag">FSJES Souissi</span><span class="tag">Sciences Rabat</span><span class="tag">Letters</span>
-                            </div>
-                            <div class="card-footer">
-                                <a href="http://www.um5.ac.ma" target="_blank" class="btn-visit">Official Site</a>
-                                <div class="source">Source: <a href="https://www.um5.ac.ma" target="_blank">UM5 2026</a></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <h3 class="category-title rabat-color"><i class="fas fa-cogs"></i> Engineering & Institutes</h3>
-                <div class="grid">
-                    <div class="card-3d">
-                        <div class="card-img" style="background-image: url('https://www.emi.ac.ma/images/slide1.jpg');">
                             <div class="type-badge">Engineering</div>
-                            <div class="city-badge badge-rabat">Rabat</div>
-                        </div>
-                        <div class="card-content">
-                            <h3>EMI - École Mohammadia d'Ingénieurs</h3>
-                            <div class="address"><i class="fas fa-map-marker-alt"></i> Avenue Ibn Sina, B.P. 765, Agdal, Rabat</div>
-                            <div class="stats">
-                                <div class="stat"><strong>2,500</strong><span>Students</span></div>
-                                <div class="stat"><strong>1959</strong><span>Oldest Eng</span></div>
-                                <div class="stat"><strong>#1</strong><span>Engineering</span></div>
-                                <div class="stat"><strong>$0</strong><span>Tuition</span></div>
-                            </div>
-                            <div class="programs">
-                                <h4>Engineering Degrees:</h4>
-                                <span class="tag">Génie Civil</span><span class="tag">Informatique</span><span class="tag">Industriel</span><span class="tag">Électrique</span><span class="tag">Mécanique</span><span class="tag">Procédés</span>
-                            </div>
-                            <div class="card-footer">
-                                <a href="http://www.emi.ac.ma" target="_blank" class="btn-visit">Official Site</a>
-                                <div class="source">Source: <a href="https://www.emi.ac.ma" target="_blank">EMI 2026</a></div>
-                            </div>
-                        </div>
+                        <div class="city-badge badge-casa">Casablanca</div>
                     </div>
-
-                    <div class="card-3d">
-                        <div class="card-img" style="background-image: url('https://www.inpt.ac.ma/images/inpt.jpg');">
-                            <div class="type-badge">Telecom Eng</div>
-                            <div class="city-badge badge-rabat">Rabat</div>
+                    <div class="card-content">
+                        <h3>ENSEM - École Nationale Supérieure d'Électricité</h3>
+                        <div class="address"><i class="fas fa-map-marker-alt"></i> Route d'El Jadida, Km 7, B.P 8118, Casablanca</div>
+                        <div class="stats">
+                            <div class="stat"><strong>1,200</strong><span>Students</span></div>
+                            <div class="stat"><strong>1986</strong><span>Founded</span></div>
+                            <div class="stat"><strong>Top 5</strong><span>Engineering</span></div>
+                            <div class="stat"><strong>$0</strong><span>Tuition</span></div>
                         </div>
-                        <div class="card-content">
-                            <h3>INPT - Institut National des Postes</h3>
-                            <div class="address"><i class="fas fa-map-marker-alt"></i> Avenue Allal Al Fassi, Madinat Al Irfane, Rabat</div>
-                            <div class="stats">
-                                <div class="stat"><strong>1,000</strong><span>Students</span></div>
-                                <div class="stat"><strong>1961</strong><span>Founded</span></div>
-                                <div class="stat"><strong>Top</strong><span>Telecom</span></div>
-                                <div class="stat"><strong>$0</strong><span>Tuition</span></div>
-                            </div>
-                            <div class="programs">
-                                <h4>Engineering Degrees:</h4>
-                                <span class="tag">Télécommunications</span><span class="tag">Réseaux</span><span class="tag">Cybersécurité</span><span class="tag">Informatique</span><span class="tag">Data Science</span>
-                            </div>
-                            <div class="card-footer">
-                                <a href="http://www.inpt.ac.ma" target="_blank" class="btn-visit">Official Site</a>
-                                <div class="source">Source: <a href="https://www.inpt.ac.ma" target="_blank">INPT 2026</a></div>
-                            </div>
+                        <div class="programs">
+                            <h4>Engineering Degrees:</h4>
+                            <span class="tag">Electrical</span><span class="tag">Mechanical</span><span class="tag">Industrial</span><span class="tag">Energy</span><span class="tag">Automation</span><span class="tag">Computer Eng</span>
                         </div>
-                    </div>
-
-                    <div class="card-3d">
-                        <div class="card-img" style="background-image: url('https://encg-rabat.ac.ma/wp-content/uploads/2021/09/encg-rabat.jpg');">
-                            <div class="type-badge">Business School</div>
-                            <div class="city-badge badge-rabat">Rabat</div>
-                        </div>
-                        <div class="card-content">
-                            <h3>ENCG Rabat</h3>
-                            <div class="address"><i class="fas fa-map-marker-alt"></i> Avenue Mohammed Ben Abdellah Erregragui, Madinat Al Irfane, Rabat</div>
-                            <div class="stats">
-                                <div class="stat"><strong>2,000</strong><span>Students</span></div>
-                                <div class="stat"><strong>1994</strong><span>Founded</span></div>
-                                <div class="stat"><strong>5 years</strong><span>Master</span></div>
-                                <div class="stat"><strong>$0</strong><span>Tuition</span></div>
-                            </div>
-                            <div class="programs">
-                                <h4>Master Degrees:</h4>
-                                <span class="tag">Finance</span><span class="tag">Audit & Control</span><span class="tag">Marketing</span><span class="tag">Management</span><span class="tag">Commerce International</span>
-                            </div>
-                            <div class="card-footer">
-                                <a href="https://encg-rabat.ac.ma" target="_blank" class="btn-visit">Official Site</a>
-                                <div class="source">Source: <a href="https://encg-rabat.ac.ma" target="_blank">ENCG Rabat 2026</a></div>
-                            </div>
+                        <div class="card-footer">
+                            <a href="http://www.ensem.ac.ma" target="_blank" class="btn-visit">Official Site</a>
+                            <div class="source">Source: <a href="https://www.ensem.ac.ma" target="_blank">ENSEM 2026</a></div>
                         </div>
                     </div>
                 </div>
 
-                <h3 class="category-title rabat-color"><i class="fas fa-tools"></i> OFPPT Rabat</h3>
-                <div class="grid">
-                    <div class="card-3d">
-                        <div class="card-img" style="background-image: url('https://www.ofppt.ma/sites/default/files/styles/slider/public/2022-03/ista-rabat.jpg');">
-                            <div class="type-badge">OFPPT ISTA</div>
-                            <div class="city-badge badge-rabat">Rabat</div></div>
-                        <div class="card-content">
-                            <h3>ISTA Yacoub El Mansour</h3>
-                            <div class="address"><i class="fas fa-map-marker-alt"></i> Avenue Al Majd, Yacoub El Mansour, Rabat</div>
-                            <div class="stats">
-                                <div class="stat"><strong>1,000</strong><span>Students</span></div>
-                                <div class="stat"><strong>2 years</strong><span>TS Diploma</span></div>
-                                <div class="stat"><strong>75%</strong><span>Job Rate</span></div>
-                                <div class="stat"><strong>$0</strong><span>Tuition</span></div>
-                            </div>
-                            <div class="programs">
-                                <h4>Top TS Programs:</h4>
-                                <span class="tag">Développement Digital</span><span class="tag">Réseaux Info</span><span class="tag">Comptabilité</span><span class="tag">Gestion</span><span class="tag">Commerce</span>
-                            </div>
-                            <div class="card-footer">
-                                <a href="https://www.ofppt.ma/fr/etablissement/ista-yacoub-el-mansour" target="_blank" class="btn-visit">Details</a>
-                                <div class="source">Source: <a href="https://www.ofppt.ma" target="_blank">OFPPT 2026</a></div>
-                            </div>
+                <div class="card-3d">
+                    <div class="card-img" style="background-image: url('https://encgcasa.ac.ma/wp-content/uploads/2021/09/encg-casablanca.jpg');">
+                        <div class="type-badge">Business School</div>
+                        <div class="city-badge badge-casa">Casablanca</div>
+                    </div>
+                    <div class="card-content">
+                        <h3>ENCG Casablanca</h3>
+                        <div class="address"><i class="fas fa-map-marker-alt"></i> Beau Site, Ain Sebaâ, B.P 2725, Casablanca</div>
+                        <div class="stats">
+                            <div class="stat"><strong>2,500</strong><span>Students</span></div>
+                            <div class="stat"><strong>1994</strong><span>Founded</span></div>
+                            <div class="stat"><strong>5 years</strong><span>Master</span></div>
+                            <div class="stat"><strong>$0</strong><span>Tuition</span></div>
+                        </div>
+                        <div class="programs">
+                            <h4>Master Degrees:</h4>
+                            <span class="tag">Finance & Accounting</span><span class="tag">Audit & Control</span><span class="tag">Marketing</span><span class="tag">Management</span><span class="tag">International Trade</span>
+                        </div>
+                        <div class="card-footer">
+                            <a href="https://encgcasa.ac.ma" target="_blank" class="btn-visit">Official Site</a>
+                            <div class="source">Source: <a href="https://encgcasa.ac.ma" target="_blank">ENCG Casa 2026</a></div>
                         </div>
                     </div>
+                </div>
+            </div>
 
-                    <div class="card-3d">
-                        <div class="card-img" style="background-image: url('https://www.ofppt.ma/sites/default/files/styles/slider/public/2021-09/ista-hay-riad.jpg');">
-                            <div class="type-badge">OFPPT ISTA</div>
-                            <div class="city-badge badge-rabat">Rabat</div>
+            <h3 class="category-title casa-color"><i class="fas fa-tools"></i> OFPPT & CMC Casablanca</h3>
+            <div class="grid">
+                <div class="card-3d">
+                    <div class="card-img" style="background-image: url('https://cdm.ofppt.ma/sites/default/files/2022-05/cmc-casa.jpg');">
+                        <div class="type-badge">CMC - NEW</div>
+                        <div class="city-badge badge-casa">Casablanca</div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Cité des Métiers et Compétences Casa-Settat</h3>
+                        <div class="address"><i class="fas fa-map-marker-alt"></i> Nouaceur, Route de l'Aéroport Mohammed V, Casablanca</div>
+                        <div class="stats">
+                            <div class="stat"><strong>4,000</strong><span>Capacity/Year</span></div>
+                            <div class="stat"><strong>2023</strong><span>Opened</span></div>
+                            <div class="stat"><strong>90%</strong><span>Job Rate</span></div>
+                            <div class="stat"><strong>$0</strong><span>Tuition</span></div>
                         </div>
-                        <div class="card-content">
-                            <h3>ISTA Hay Riad</h3>
-                            <div class="address"><i class="fas fa-map-marker-alt"></i> Avenue Annakhil, Hay Riad, Rabat</div>
-                            <div class="stats">
-                                <div class="stat"><strong>1,200</strong><span>Students</span></div>
-                                <div class="stat"><strong>2 years</strong><span>TS Diploma</span></div>
-                                <div class="stat"><strong>80%</strong><span>Job Rate</span></div>
-                                <div class="stat"><strong>$0</strong><span>Tuition</span></div>
-                            </div>
-                            <div class="programs">
-                                <h4>Programs:</h4>
-                                <span class="tag">Génie Civil</span><span class="tag">Topographie</span><span class="tag">Électrotechnique</span><span class="tag">Climatisation</span><span class="tag">Plomberie</span>
-                            </div>
-                            <div class="card-footer">
-                                <a href="https://www.ofppt.ma/fr/etablissement/ista-hay-riad" target="_blank" class="btn-visit">Details</a>
-                                <div class="source">Source: <a href="https://www.ofppt.ma" target="_blank">OFPPT 2026</a></div>
-                            </div>
+                        <div class="programs">
+                            <h4>10 Poles of Excellence:</h4>
+                            <span class="tag">Digital & AI</span><span class="tag">Aerospace Industry</span><span class="tag">Automotive</span><span class="tag">Health Services</span><span class="tag">Tourism & Hotel</span><span class="tag">Green Energy</span><span class="tag">Logistics</span><span class="tag">Agribusiness</span>
+                        </div>
+                        <div class="card-footer">
+                            <a href="https://cdm.ofppt.ma/fr/cmc-casablanca-settat" target="_blank" class="btn-visit">CMC Portal</a>
+                            <div class="source">Source: <a href="https://cdm.ofppt.ma" target="_blank">CMC 2026</a></div>
                         </div>
                     </div>
                 </div>
 
-                <div class="alert-box" style="border-left-color: var(--rabat);">
-                    <h3><i class="fas fa-graduation-cap"></i> 2026 Admission Requirements - Public Schools</h3>
-                    <p><strong>Universities (UH2C/UM5):</strong> Bac any type. No concours for Licence. Registration July 15 - Sept 15. Master: Licence + concours + interview.</p>
-                    <p><strong>Engineering (EHTP/EMI/ENSEM):</strong> Bac Sciences Mathématiques mention Bien/Très Bien. CNC National Concours mandatory. Registration Feb-Mar 2026.</p>
-                    <p><strong>ENCG:</strong> Bac + TAFEM National Concours. Registration Feb-Apr 2026. 5-year integrated Master.</p>
-                    <p><strong>OFPPT/CMC:</strong> Bac or Niveau Bac for TS. No concours. Selection by grades. Registration May-July 2026 via takwine.ofppt.ma</p>
-                    <p><strong>Medical Schools:</strong> Bac Sciences Expérimentales/Physiques mention Bien minimum. National concours July 2026.</p>
+                <div class="card-3d">
+                    <div class="card-img" style="background-image: url('https://www.ofppt.ma/sites/default/files/styles/slider/public/2022-03/ista-hay-hassani.jpg');">
+                        <div class="type-badge">OFPPT ISTA</div>
+                        <div class="city-badge badge-casa">Casablanca</div>
+                    </div>
+                    <div class="card-content">
+                        <h3>ISTA Hay Hassani</h3>
+                        <div class="address"><i class="fas fa-map-marker-alt"></i> Boulevard Abdelhadi Boutaleb, Hay Hassani, Casablanca</div>
+                        <div class="stats">
+                            <div class="stat"><strong>1,500</strong><span>Students</span></div>
+                            <div class="stat"><strong>2 years</strong><span>TS Diploma</span></div>
+                            <div class="stat"><strong>80%</strong><span>Job Rate</span></div>
+                            <div class="stat"><strong>$0</strong><span>Tuition</span></div>
+                        </div>
+                        <div class="programs">
+                            <h4>Top TS Programs:</h4>
+                            <span class="tag">Développement Digital</span><span class="tag">Réseaux Info</span><span class="tag">Comptabilité</span><span class="tag">Gestion Entreprises</span><span class="tag">Électronique</span>
+                        </div>
+                        <div class="card-footer">
+                            <a href="https://www.ofppt.ma/fr/etablissement/ista-hay-hassani" target="_blank" class="btn-visit">Details</a>
+                            <div class="source">Source: <a href="https://www.ofppt.ma" target="_blank">OFPPT 2026</a></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-3d">
+                    <div class="card-img" style="background-image: url('https://www.ofppt.ma/sites/default/files/2021-09/ista-ain-sebaa.jpg');">
+                        <div class="type-badge">OFPPT ISTA</div>
+                        <div class="city-badge badge-casa">Casablanca</div>
+                    </div>
+                    <div class="card-content">
+                        <h3>ISTA Ain Sebaâ</h3>
+                        <div class="address"><i class="fas fa-map-marker-alt"></i> Route de Rabat, Ain Sebaâ, Casablanca</div>
+                        <div class="stats">
+                            <div class="stat"><strong>1,200</strong><span>Students</span></div>
+                            <div class="stat"><strong>2 years</strong><span>TS Diploma</span></div>
+                            <div class="stat"><strong>75%</strong><span>Job Rate</span></div>
+                            <div class="stat"><strong>$0</strong><span>Tuition</span></div>
+                        </div>
+                        <div class="programs">
+                            <h4>Industrial Programs:</h4>
+                            <span class="tag">Électromécanique</span><span class="tag">Froid Industriel</span><span class="tag">Maintenance Auto</span><span class="tag">Chaudronnerie</span><span class="tag">Menuiserie Alu</span>
+                        </div>
+                        <div class="card-footer">
+                            <a href="https://www.ofppt.ma/fr/etablissement/ista-ain-sebaa" target="_blank" class="btn-visit">Details</a>
+                            <div class="source">Source: <a href="https://www.ofppt.ma" target="_blank">OFPPT 2026</a></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
 
-    <footer>
-        <div class="container">
-            <p><strong>Hijra Acc - Complete Guide Casablanca & Rabat 2026</strong></p>
-            <p>All data from official sources: UH2C, UM5, EHTP, EMI, ENSEM, ENCG, INPT, OFPPT, CMC 2026</p>
-            <p>Last updated: May 2026 | Free public education in Morocco</p>
+        <div id="rabat" class="city-content" style="display:none;">
+            <div class="section-header">
+                <h2 class="rabat-title">Rabat - 10+ Institutions</h2>
+                <p>Capital city with #1 university UM5, EMI, INPT, ENCG & OFPPT centers</p>
+            </div>
+
+            <h3 class="category-title rabat-color"><i class="fas fa-university"></i> University</h3>
+            <div class="grid">
+                <div class="card-3d">
+                    <div class="card-img" style="background-image: url('https://www.um5.ac.ma/um5r/sites/default/files/images/um5r-rabat.jpg');">
+                        <div class="type-badge">University</div>
+                        <div class="city-badge badge-rabat">Rabat</div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Mohammed V University of Rabat</h3>
+                        <div class="address"><i class="fas fa-map-marker-alt"></i> Avenue Ibn Battouta, B.P. 1014, Agdal, Rabat</div>
+                        <div class="stats">
+                            <div class="stat"><strong>96,000+</strong><span>Students</span></div>
+                            <div class="stat"><strong>1957</strong><span>Founded</span></div>
+                            <div class="stat"><strong>#1</strong><span>Morocco</span></div>
+                            <div class="stat"><strong>$0</strong><span>Tuition</span></div>
+                        </div>
+                        <div class="programs">
+                            <h4>Main Faculties in Rabat:</h4>
+                            <span class="tag">Medicine Rabat</span><span class="tag">Pharmacy</span><span class="tag">Dentistry</span><span class="tag">FSJES Agdal</span><span class="tag">FSJES Souissi</span><span class="tag">Sciences Rabat</span><span class="tag">Letters</span>
+                        </div>
+                        <div class="card-footer">
+                            <a href="http://www.um5.ac.ma" target="_blank" class="btn-visit">Official Site</a>
+                            <div class="source">Source: <a href="https://www.um5.ac.ma" target="_blank">UM5 2026</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="category-title rabat-color"><i class="fas fa-cogs"></i> Engineering & Institutes</h3>
+            <div class="grid">
+                <div class="card-3d">
+                    <div class="card-img" style="background-image: url('https://www.emi.ac.ma/images/slide1.jpg');">
+                        <div class="type-badge">Engineering</div>
+                        <div class="city-badge badge-rabat">Rabat</div>
+                    </div>
+                    <div class="card-content">
+                        <h3>EMI - École Mohammadia d'Ingénieurs</h3>
+                        <div class="address"><i class="fas fa-map-marker-alt"></i> Avenue Ibn Sina, B.P. 765, Agdal, Rabat</div>
+                        <div class="stats">
+                            <div class="stat"><strong>2,500</strong><span>Students</span></div>
+                            <div class="stat"><strong>1959</strong><span>Oldest Eng</span></div>
+                            <div class="stat"><strong>#1</strong><span>Engineering</span></div>
+                            <div class="stat"><strong>$0</strong><span>Tuition</span></div>
+                        </div>
+                        <div class="programs">
+                            <h4>Engineering Degrees:</h4>
+                            <span class="tag">Génie Civil</span><span class="tag">Informatique</span><span class="tag">Industriel</span><span class="tag">Électrique</span><span class="tag">Mécanique</span><span class="tag">Procédés</span>
+                        </div>
+                        <div class="card-footer">
+                            <a href="http://www.emi.ac.ma" target="_blank" class="btn-visit">Official Site</a>
+                            <div class="source">Source: <a href="https://www.emi.ac.ma" target="_blank">EMI 2026</a></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-3d">
+                    <div class="card-img" style="background-image: url('https://www.inpt.ac.ma/images/inpt.jpg');">
+                        <div class="type-badge">Telecom Eng</div>
+                        <div class="city-badge badge-rabat">Rabat</div>
+                    </div>
+                    <div class="card-content">
+                        <h3>INPT - Institut National des Postes</h3>
+                        <div class="address"><i class="fas fa-map-marker-alt"></i> Avenue Allal Al Fassi, Madinat Al Irfane, Rabat</div>
+                        <div class="stats">
+                            <div class="stat"><strong>1,000</strong><span>Students</span></div>
+                            <div class="stat"><strong>1961</strong><span>Founded</span></div>
+                            <div class="stat"><strong>Top</strong><span>Telecom</span></div>
+                            <div class="stat"><strong>$0</strong><span>Tuition</span></div>
+                        </div>
+                        <div class="programs">
+                            <h4>Engineering Degrees:</h4>
+                            <span class="tag">Télécommunications</span><span class="tag">Réseaux</span><span class="tag">Cybersécurité</span><span class="tag">Informatique</span><span class="tag">Data Science</span>
+                        </div>
+                        <div class="card-footer">
+                            <a href="http://www.inpt.ac.ma" target="_blank" class="btn-visit">Official Site</a>
+                            <div class="source">Source: <a href="https://www.inpt.ac.ma" target="_blank">INPT 2026</a></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-3d">
+                    <div class="card-img" style="background-image: url('https://encg-rabat.ac.ma/wp-content/uploads/2021/09/encg-rabat.jpg');">
+                        <div class="type-badge">Business School</div>
+                        <div class="city-badge badge-rabat">Rabat</div>
+                    </div>
+                    <div class="card-content">
+                        <h3>ENCG Rabat</h3>
+                        <div class="address"><i class="fas fa-map-marker-alt"></i> Avenue Mohammed Ben Abdellah Erregragui, Madinat Al Irfane, Rabat</div>
+                        <div class="stats">
+                            <div class="stat"><strong>2,000</strong><span>Students</span></div>
+                            <div class="stat"><strong>1994</strong><span>Founded</span></div>
+                            <div class="stat"><strong>5 years</strong><span>Master</span></div>
+                            <div class="stat"><strong>$0</strong><span>Tuition</span></div>
+                        </div>
+                        <div class="programs">
+                            <h4>Master Degrees:</h4>
+                            <span class="tag">Finance</span><span class="tag">Audit & Control</span><span class="tag">Marketing</span><span class="tag">Management</span><span class="tag">Commerce International</span>
+                        </div>
+                        <div class="card-footer">
+                            <a href="https://encg-rabat.ac.ma" target="_blank" class="btn-visit">Official Site</a>
+                            <div class="source">Source: <a href="https://encg-rabat.ac.ma" target="_blank">ENCG Rabat 2026</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="category-title rabat-color"><i class="fas fa-tools"></i> OFPPT Rabat</h3>
+            <div class="grid">
+                <div class="card-3d">
+                    <div class="card-img" style="background-image: url('https://www.ofppt.ma/sites/default/files/styles/slider/public/2022-03/ista-rabat.jpg');">
+                        <div class="type-badge">OFPPT ISTA</div>
+                        <div class="city-badge badge-rabat">Rabat</div>
+                    </div>
+                    <div class="card-content">
+                        <h3>ISTA Yacoub El Mansour</h3>
+                        <div class="address"><i class="fas fa-map-marker-alt"></i> Avenue Al Majd, Yacoub El Mansour, Rabat</div>
+                        <div class="stats">
+                            <div class="stat"><strong>1,000</strong><span>Students</span></div>
+                            <div class="stat"><strong>2 years</strong><span>TS Diploma</span></div>
+                            <div class="stat"><strong>75%</strong><span>Job Rate</span></div>
+                            <div class="stat"><strong>$0</strong><span>Tuition</span></div>
+                        </div>
+                        <div class="programs">
+                            <h4>Top TS Programs:</h4>
+                            <span class="tag">Développement Digital</span><span class="tag">Réseaux Info</span><span class="tag">Comptabilité</span><span class="tag">Gestion</span><span class="tag">Commerce</span>
+                        </div>
+                        <div class="card-footer">
+                            <a href="https://www.ofppt.ma/fr/etablissement/ista-yacoub-el-mansour" target="_blank" class="btn-visit">Details</a>
+                            <div class="source">Source: <a href="https://www.ofppt.ma" target="_blank">OFPPT 2026</a></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-3d">
+                    <div class="card-img" style="background-image: url('https://www.ofppt.ma/sites/default/files/styles/slider/public/2021-09/ista-hay-riad.jpg');">
+                        <div class="type-badge">OFPPT ISTA</div>
+                        <div class="card-3d">
+                    <div class="card-img" style="background-image: url('https://www.ofppt.ma/sites/default/files/styles/slider/public/2021-09/ista-hay-riad.jpg');">
+                        <div class="type-badge">OFPPT ISTA</div>
+                        <div class="city-badge badge-rabat">Rabat</div>
+                    </div>
+                    <div class="card-content">
+                        <h3>ISTA Hay Riad</h3>
+                        <div class="address"><i class="fas fa-map-marker-alt"></i> Avenue Annakhil, Hay Riad, Rabat</div>
+                        <div class="stats">
+                            <div class="stat"><strong>1,200</strong><span>Students</span></div>
+                            <div class="stat"><strong>2 years</strong><span>TS Diploma</span></div>
+                            <div class="stat"><strong>80%</strong><span>Job Rate</span></div>
+                            <div class="stat"><strong>$0</strong><span>Tuition</span></div>
+                        </div>
+                        <div class="programs">
+                            <h4>Programs:</h4>
+                            <span class="tag">Génie Civil</span><span class="tag">Topographie</span><span class="tag">Électrotechnique</span><span class="tag">Climatisation</span><span class="tag">Plomberie</span>
+                        </div>
+                        <div class="card-footer">
+                            <a href="https://www.ofppt.ma/fr/etablissement/ista-hay-riad" target="_blank" class="btn-visit">Details</a>
+                            <div class="source">Source: <a href="https://www.ofppt.ma" target="_blank">OFPPT 2026</a></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-3d">
+                    <div class="card-img" style="background-image: url('https://www.inpt.ac.ma/images/inpt.jpg');">
+                        <div class="type-badge">Telecom Eng</div>
+                        <div class="city-badge badge-rabat">Rabat</div>
+                    </div>
+                    <div class="card-content">
+                        <h3>INPT - Institut National des Postes</h3>
+                        <div class="address"><i class="fas fa-map-marker-alt"></i> Avenue Allal Al Fassi, Madinat Al Irfane, Rabat</div>
+                        <div class="stats">
+                            <div class="stat"><strong>1,000</strong><span>Students</span></div>
+                            <div class="stat"><strong>1961</strong><span>Founded</span></div>
+                            <div class="stat"><strong>Top</strong><span>Telecom</span></div>
+                            <div class="stat"><strong>$0</strong><span>Tuition</span></div>
+                        </div>
+                        <div class="programs">
+                            <h4>Engineering Degrees:</h4>
+                            <span class="tag">Télécommunications</span><span class="tag">Réseaux</span><span class="tag">Cybersécurité</span><span class="tag">Informatique</span><span class="tag">Data Science</span>
+                        </div>
+                        <div class="card-footer">
+                            <a href="http://www.inpt.ac.ma" target="_blank" class="btn-visit">Official Site</a>
+                            <div class="source">Source: <a href="https://www.inpt.ac.ma" target="_blank">INPT 2026</a></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-3d">
+                    <div class="card-img" style="background-image: url('https://encg-rabat.ac.ma/wp-content/uploads/2021/09/encg-rabat.jpg');">
+                        <div class="type-badge">Business School</div>
+                        <div class="city-badge badge-rabat">Rabat</div>
+                    </div>
+                    <div class="card-content">
+                        <h3>ENCG Rabat</h3>
+                        <div class="address"><i class="fas fa-map-marker-alt"></i> Avenue Mohammed Ben Abdellah Erregragui, Madinat Al Irfane, Rabat</div>
+                        <div class="stats">
+                            <div class="stat"><strong>2,000</strong><span>Students</span></div>
+                            <div class="stat"><strong>1994</strong><span>Founded</span></div>
+                            <div class="stat"><strong>5 years</strong><span>Master</span></div>
+                            <div class="stat"><strong>$0</strong><span>Tuition</span></div>
+                        </div>
+                        <div class="programs">
+                            <h4>Master Degrees:</h4>
+                            <span class="tag">Finance</span><span class="tag">Audit & Control</span><span class="tag">Marketing</span><span class="tag">Management</span><span class="tag">Commerce International</span>
+                        </div>
+                        <div class="card-footer">
+                            <a href="https://encg-rabat.ac.ma" target="_blank" class="btn-visit">Official Site</a>
+                            <div class="source">Source: <a href="https://encg-rabat.ac.ma" target="_blank">ENCG Rabat 2026</a></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-3d">
+                    <div class="card-img" style="background-image: url('https://www.enssup.gov.ma/sites/default/files/2021-09/est-sale.jpg');">
+                        <div class="type-badge">OFPPT EST</div>
+                        <div class="city-badge badge-rabat">Rabat</div>
+                    </div>
+                    <div class="card-content">
+                        <h3>EST Salé - École Supérieure de Technologie</h3>
+                        <div class="address"><i class="fas fa-map-marker-alt"></i> Avenue Prince Héritier, Salé</div>
+                        <div class="stats">
+                            <div class="stat"><strong>1,500</strong><span>Students</span></div>
+                            <div class="stat"><strong>2 years</strong><span>DUT Diploma</span></div>
+                            <div class="stat"><strong>85%</strong><span>Job Rate</span></div>
+                            <div class="stat"><strong>$0</strong><span>Tuition</span></div>
+                        </div>
+                        <div class="programs">
+                            <h4>DUT Programs:</h4>
+                            <span class="tag">Génie Informatique</span><span class="tag">Génie Électrique</span><span class="tag">Génie Mécanique</span><span class="tag">Génie Civil</span><span class="tag">Techniques Management</span>
+                        </div>
+                        <div class="card-footer">
+                            <a href="https://ests.ucd.ac.ma" target="_blank" class="btn-visit">Official Site</a>
+                            <div class="source">Source: <a href="https://ests.ucd.ac.ma" target="_blank">EST Salé 2026</a></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-3d">
+                    <div class="card-img" style="background-image: url('https://www.ofppt.ma/sites/default/files/styles/slider/public/2022-01/cfpm-rabat.jpg');">
+                        <div class="type-badge">OFPPT CFPM</div>
+                        <div class="city-badge badge-rabat">Rabat</div>
+                    </div>
+                    <div class="card-content">
+                        <h3>CFPM Rabat - Centre Formation Métiers</h3>
+                        <div class="address"><i class="fas fa-map-marker-alt"></i> Avenue Hassan II, Rabat</div>
+                        <div class="stats">
+                            <div class="stat"><strong>800</strong><span>Students</span></div>
+                            <div class="stat"><strong>1-2 years</strong><span>Qualification</span></div>
+                            <div class="stat"><strong>90%</strong><span>Job Rate</span></div>
+                            <div class="stat"><strong>$0</strong><span>Tuition</span></div>
+                        </div>
+                        <div class="programs">
+                            <h4>Vocational Training:</h4>
+                            <span class="tag">Menuiserie Bois/Alu</span><span class="tag">Plomberie</span><span class="tag">Électricité Bâtiment</span><span class="tag">Carrelage</span><span class="tag">Peinture</span>
+                        </div>
+                        <div class="card-footer">
+                            <a href="https://www.ofppt.ma/fr/etablissement/cfpm-rabat" target="_blank" class="btn-visit">Details</a>
+                            <div class="source">Source: <a href="https://www.ofppt.ma" target="_blank">OFPPT 2026</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="alert-box" style="border-left-color: var(--rabat);">
+                <h3><i class="fas fa-graduation-cap"></i> 2026 Admission Requirements - Public Schools</h3>
+                <p><strong>Universities (UH2C/UM5):</strong> Bac any type. No concours for Licence. Registration July 15 - Sept 15. Master: Licence + concours + interview.</p>
+                <p><strong>Engineering (EHTP/EMI/ENSEM):</strong> Bac Sciences Mathématiques mention Bien/Très Bien. CNC National Concours mandatory. Registration Feb-Mar 2026.</p>
+                <p><strong>ENCG:</strong> Bac + TAFEM National Concours. Registration Feb-Apr 2026. 5-year integrated Master.</p>
+                <p><strong>OFPPT/CMC:</strong> Bac or Niveau Bac for TS. No concours. Selection by grades. Registration May-July 2026 via takwine.ofppt.ma</p>
+                <p><strong>Medical Schools:</strong> Bac Sciences Expérimentales/Physiques mention Bien minimum. National concours July 2026.</p>
+            </div>
         </div>
-    </footer>
+    </div>
+</section>
 
-    <script>
-        function showCity(city) {
-            const casa = document.getElementById('casablanca');
-            const rabat = document.getElementById('rabat');
-            const casaBtn = document.querySelector('.city-btn.casa');
-            const rabatBtn = document.querySelector('.city-btn.rabat');
-            
-            if (city === 'casablanca') {
-                casa.style.display = 'block';
-                rabat.style.display = 'none';
-                casaBtn.classList.add('active');
-                rabatBtn.classList.remove('active');
-            } else {
-                casa.style.display = 'none';
-                rabat.style.display = 'block';
-                rabatBtn.classList.add('active');
-                casaBtn.classList.remove('active');
-            }
-            window.scrollTo({top: 600, behavior: 'smooth'});
+<footer>
+    <div class="container">
+        <p><strong>Hijra Acc - Complete Guide Casablanca & Rabat 2026</strong></p>
+        <p>All data from official sources: UH2C, UM5, EHTP, EMI, ENSEM, ENCG, INPT, OFPPT, CMC 2026</p>
+        <p>Last updated: May 2026 | Free public education in Morocco</p>
+    </div>
+</footer>
+
+<script>
+    function showCity(city) {
+        const casa = document.getElementById('casablanca');
+        const rabat = document.getElementById('rabat');
+        const casaBtn = document.querySelector('.city-btn.casa');
+        const rabatBtn = document.querySelector('.city-btn.rabat');
+        
+        if (city === 'casablanca') {
+            casa.style.display = 'block';
+            rabat.style.display = 'none';
+            casaBtn.classList.add('active');
+            rabatBtn.classList.remove('active');
+        } else {
+            casa.style.display = 'none';
+            rabat.style.display = 'block';
+            rabatBtn.classList.add('active');
+            casaBtn.classList.remove('active');
         }
+        window.scrollTo({top: 600, behavior: 'smooth'});
+    }
 
-        document.addEventListener('DOMContentLoaded', function() {
-            const cards = document.querySelectorAll('.card-3d');
-            cards.forEach(card => {
-                card.addEventListener('mousemove', (e) => {
-                    const rect = card.getBoundingClientRect();
-                    const x = e.clientX - rect.left;
-                    const y = e.clientY - rect.top;
-                    const centerX = rect.width / 2;
-                    const centerY = rect.height / 2;
-                    const rotateX = (y - centerY) / 20;
-                    const rotateY = (centerX - x) / 20;
-                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-15px) scale(1.02)`;
-                });
-                card.addEventListener('mouseleave', () => {
-                    card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0) scale(1)';
-                });
+    document.addEventListener('DOMContentLoaded', function() {
+        const cards = document.querySelectorAll('.card-3d');
+        cards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateX = (y - centerY) / 20;
+                const rotateY = (centerX - x) / 20;
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-15px) scale(1.02)`;
             });
-        });<div class="card-3d">
-                        <div class="card-img" style="background-image: url('https://www.enssup.gov.ma/sites/default/files/2021-09/est-sale.jpg');">
-                            <div class="type-badge">OFPPT EST</div>
-                            <div class="city-badge badge-rabat">Rabat</div>
-                        </div>
-                        <div class="card-content">
-                            <h3>EST Salé - École Supérieure de Technologie</h3>
-                            <div class="address"><i class="fas fa-map-marker-alt"></i> Avenue Prince Héritier, Salé</div>
-                            <div class="stats">
-                                <div class="stat"><strong>1,500</strong><span>Students</span></div>
-                                <div class="stat"><strong>2 years</strong><span>DUT Diploma</span></div>
-                                <div class="stat"><strong>85%</strong><span>Job Rate</span></div>
-                                <div class="stat"><strong>$0</strong><span>Tuition</span></div>
-                            </div>
-                            <div class="programs">
-                                <h4>DUT Programs:</h4>
-                                <span class="tag">Génie Informatique</span><span class="tag">Génie Électrique</span><span class="tag">Génie Mécanique</span><span class="tag">Génie Civil</span><span class="tag">Techniques Management</span>
-                            </div>
-                            <div class="card-footer">
-                                <a href="https://ests.ucd.ac.ma" target="_blank" class="btn-visit">Official Site</a>
-                                <div class="source">Source: <a href="https://ests.ucd.ac.ma" target="_blank">EST Salé 2026</a></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card-3d">
-                        <div class="card-img" style="background-image: url('https://www.ofppt.ma/sites/default/files/styles/slider/public/2022-01/cfpm-rabat.jpg');">
-                            <div class="type-badge">OFPPT CFPM</div>
-                            <div class="city-badge badge-rabat">Rabat</div>
-                        </div>
-                        <div class="card-content">
-                            <h3>CFPM Rabat - Centre Formation Métiers</h3>
-                            <div class="address"><i class="fas fa-map-marker-alt"></i> Avenue Hassan II, Rabat</div>
-                            <div class="stats">
-                                <div class="stat"><strong>800</strong><span>Students</span></div>
-                                <div class="stat"><strong>1-2 years</strong><span>Qualification</span></div>
-                                <div class="stat"><strong>90%</strong><span>Job Rate</span></div>
-                                <div class="stat"><strong>$0</strong><span>Tuition</span></div>
-                            </div>
-                            <div class="programs">
-                                <h4>Vocational Training:</h4>
-                                <span class="tag">Menuiserie Bois/Alu</span><span class="tag">Plomberie</span><span class="tag">Électricité Bâtiment</span><span class="tag">Carrelage</span><span class="tag">Peinture</span>
-                            </div>
-                            <div class="card-footer">
-                                <a href="https://www.ofppt.ma/fr/etablissement/cfpm-rabat" target="_blank" class="btn-visit">Details</a>
-                                <div class="source">Source: <a href="https://www.ofppt.ma" target="_blank">OFPPT 2026</a></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="alert-box" style="border-left-color: var(--rabat);">
-                    <h3><i class="fas fa-graduation-cap"></i> 2026 Admission Requirements - Public Schools</h3>
-                    <p><strong>Universities (UH2C/UM5):</strong> Bac any type. No concours for Licence. Registration July 15 - Sept 15. Master: Licence + concours + interview.</p>
-                    <p><strong>Engineering (EHTP/EMI/ENSEM):</strong> Bac Sciences Mathématiques mention Bien/Très Bien. CNC National Concours mandatory. Registration Feb-Mar 2026.</p>
-                    <p><strong>ENCG:</strong> Bac + TAFEM National Concours. Registration Feb-Apr 2026. 5-year integrated Master.</p>
-                    <p><strong>OFPPT/CMC:</strong> Bac or Niveau Bac for TS. No concours. Selection by grades. Registration May-July 2026 via takwine.ofppt.ma</p>
-                    <p><strong>Medical Schools:</strong> Bac Sciences Expérimentales/Physiques mention Bien minimum. National concours July 2026.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <p><strong>Hijra Acc - Complete Guide Casablanca & Rabat 2026</strong></p>
-            <p>All data from official sources: UH2C, UM5, EHTP, EMI, ENSEM, ENCG, INPT, OFPPT, CMC 2026</p>
-            <p>Last updated: May 2026 | Free public education in Morocco</p>
-        </div>
-    </footer>
-
-    <script>
-        function showCity(city) {
-            const casa = document.getElementById('casablanca');
-            const rabat = document.getElementById('rabat');
-            const casaBtn = document.querySelector('.city-btn.casa');
-            const rabatBtn = document.querySelector('.city-btn.rabat');
-            
-            if (city === 'casablanca') {
-                casa.style.display = 'block';
-                rabat.style.display = 'none';
-                casaBtn.classList.add('active');
-                rabatBtn.classList.remove('active');
-            } else {
-                casa.style.display = 'none';
-                rabat.style.display = 'block';
-                rabatBtn.classList.add('active');
-                casaBtn.classList.remove('active');
-            }
-            window.scrollTo({top: 600, behavior: 'smooth'});
-        }
-
-        document.addEventListener('DOMContentLoaded', function() {
-            const cards = document.querySelectorAll('.card-3d');
-            cards.forEach(card => {
-                card.addEventListener('mousemove', (e) => {
-                    const rect = card.getBoundingClientRect();
-                    const x = e.clientX - rect.left;
-                    const y = e.clientY - rect.top;
-                    const centerX = rect.width / 2;
-                    const centerY = rect.height / 2;
-                    const rotateX = (y - centerY) / 20;
-                    const rotateY = (centerX - x) / 20;
-                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-15px) scale(1.02)`;
-                });
-                card.addEventListener('mouseleave', () => {
-                    card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0) scale(1)';
-                });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0) scale(1)';
             });
         });
-    </script>
+    });
+</script>
 </body>
 </html>
