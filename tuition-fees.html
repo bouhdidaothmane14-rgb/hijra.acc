@@ -19,30 +19,22 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Poppins', sans-serif; line-height: 1.7; color: #333; background: #f8f9fa; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        
-        /* Header */
         header { background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); color: white; padding: 1rem 0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
         .nav { display: flex; justify-content: space-between; align-items: center; }
         .logo { font-size: 1.8rem; font-weight: 800; display: flex; align-items: center; gap: 10px; }
         .back-btn { background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); color: white; padding: 12px 25px; border-radius: 50px; text-decoration: none; transition: 0.3s; border: 1px solid rgba(255,255,255,0.2); }
         .back-btn:hover { background: rgba(255,255,255,0.25); transform: translateY(-2px); }
-        
-        /* Hero */
         .hero { background: linear-gradient(135deg, rgba(102,126,234,0.95) 0%, rgba(118,75,162,0.95) 100%), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80') center/cover; padding: 100px 0; text-align: center; color: white; }
-        .hero h1 { font-size: 3rem; font-weight: 800; margin-bottom: 20px; animation: fadeInUp 0.8s; }
-        .hero p { font-size: 1.2rem; max-width: 700px; margin: 0 auto 30px; opacity: 0.9; animation: fadeInUp 1s; }
+        .hero h1 { font-size: 3rem; font-weight: 800; margin-bottom: 20px; }
+        .hero p { font-size: 1.2rem; max-width: 700px; margin: 0 auto 30px; opacity: 0.9; }
         .stats { display: flex; justify-content: center; gap: 40px; margin-top: 40px; flex-wrap: wrap; }
-        .stat-box { text-align: center; animation: fadeInUp 1.2s; }
+        .stat-box { text-align: center; }
         .stat-box h3 { font-size: 2.5rem; font-weight: 800; }
         .stat-box p { font-size: 0.9rem; opacity: 0.8; }
-        
-        /* Content Sections */
         .section { padding: 80px 0; }
         .section-title { text-align: center; margin-bottom: 60px; }
         .section-title h2 { font-size: 2.5rem; color: var(--dark); margin-bottom: 15px; font-weight: 700; }
         .section-title p { color: #666; max-width: 600px; margin: 0 auto; }
-        
-        /* Cards */
         .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 60px; }
         .price-card { background: white; border-radius: 20px; padding: 40px 30px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); transition: 0.4s; border-top: 5px solid var(--primary); position: relative; overflow: hidden; }
         .price-card:hover { transform: translateY(-10px); box-shadow: 0 20px 60px rgba(0,0,0,0.15); }
@@ -54,8 +46,6 @@
         .features { list-style: none; margin: 25px 0; }
         .features li { padding: 10px 0; border-bottom: 1px solid #eee; display: flex; align-items: center; gap: 10px; }
         .features li i { color: var(--success); }
-        
-        /* Table */
         .table-wrapper { background: white; border-radius: 20px; padding: 40px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); overflow-x: auto; }
         table { width: 100%; border-collapse: collapse; }
         th { background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); color: white; padding: 20px; text-align: left; font-weight: 600; }
@@ -64,19 +54,244 @@
         .badge { display: inline-block; padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; }
         .badge-success { background: #d4edda; color: #155724; }
         .badge-warning { background: #fff3cd; color: #856404; }
-        
-        /* FAQ */
         .faq-item { background: white; border-radius: 15px; margin-bottom: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); overflow: hidden; }
         .faq-question { padding: 25px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; color: var(--dark); }
         .faq-answer { padding: 0 25px 25px; color: #666; display: none; }
         .faq-item.active .faq-answer { display: block; }
-        
-        /* CTA */
         .cta { background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); color: white; text-align: center; padding: 80px 0; border-radius: 20px; margin: 60px 0; }
         .cta h2 { font-size: 2.5rem; margin-bottom: 20px; }
         .btn { display: inline-block; background: white; color: var(--primary); padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: 600; transition: 0.3s; margin: 10px; }
         .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
-        
-        /* Footer */
         footer { background: var(--dark); color: white; padding: 50px 0 30px; }
-        .footer-grid { display: grid; grid-template-columns
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 40px; }
+        .footer-col h4 { margin-bottom: 20px; color: var(--primary); }
+        .footer-col a { color: #bbb; text-decoration: none; display: block; margin: 10px 0; transition: 0.3s; }
+        .footer-col a:hover { color: white; padding-left: 5px; }
+        .copyright { text-align: center; padding-top: 30px; border-top: 1px solid #444; color: #999; }
+        @media (max-width: 768px) { .hero h1 { font-size: 2rem; } .price-card.featured { transform: scale(1); } .stats { gap: 20px; } }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav">
+            <div class="logo"><i class="fas fa-graduation-cap"></i> Hijra Acc</div>
+            <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Home</a>
+        </div>
+    </header>
+    <section class="hero">
+        <div class="container">
+            <h1>Study in Morocco: Complete Cost Guide 2026</h1>
+            <p>Discover why 50,000+ international students choose Morocco. Tuition from $500/year, living costs from $300/month.</p>
+            <div class="stats">
+                <div class="stat-box"><h3>$500</h3><p>Min Tuition/Year</p></div>
+                <div class="stat-box"><h3>$300</h3><p>Min Living/Month</p></div>
+                <div class="stat-box"><h3>100+</h3><p>Universities</p></div>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Compare Your Options</h2>
+                <p>Choose between affordable public universities or premium private institutions</p>
+            </div>
+            <div class="cards-grid">
+                <div class="price-card">
+                    <h3><i class="fas fa-landmark"></i> Public Universities</h3>
+                    <div class="price">$500 <span>/ year</span></div>
+                    <ul class="features">
+                        <li><i class="fas fa-check"></i> Government subsidized</li>
+                        <li><i class="fas fa-check"></i> Recognized worldwide</li>
+                        <li><i class="fas fa-check"></i> French/Arabic programs</li>
+                        <li><i class="fas fa-check"></i> 90+ institutions</li>
+                        <li><i class="fas fa-check"></i> Scholarship eligible</li>
+                    </ul>
+                </div>
+                <div class="price-card featured">
+                    <h3><i class="fas fa-building"></i> Private Universities</h3>
+                    <div class="price">$7,000 <span>/ year</span></div>
+                    <ul class="features">
+                        <li><i class="fas fa-check"></i> 100% English programs</li>
+                        <li><i class="fas fa-check"></i> American/European style</li>
+                        <li><i class="fas fa-check"></i> Small class sizes</li>
+                        <li><i class="fas fa-check"></i> Modern facilities</li>
+                        <li><i class="fas fa-check"></i> Industry partnerships</li>
+                    </ul>
+                </div>
+                <div class="price-card">
+                    <h3><i class="fas fa-microscope"></i> Engineering/Medical</h3>
+                    <div class="price">$2,000 <span>/ year</span></div>
+                    <ul class="features">
+                        <li><i class="fas fa-check"></i> Top-ranked programs</li>
+                        <li><i class="fas fa-check"></i> Lab access included</li>
+                        <li><i class="fas fa-check"></i> Clinical training</li>
+                        <li><i class="fas fa-check"></i> EU recognition</li>
+                        <li><i class="fas fa-check"></i> High employment rate</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section" style="background: white;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Detailed Tuition Breakdown 2026</h2>
+            </div>
+            <div class="table-wrapper">
+                <table>
+                    <tr>
+                        <th>University Type</th>
+                        <th>Program</th>
+                        <th>Annual Fees</th>
+                        <th>Language</th>
+                        <th>Ranking</th>
+                    </tr>
+                    <tr>
+                        <td>Mohammed V University</td>
+                        <td>Bachelor/Master</td>
+                        <td>$500 - $1,200</td>
+                        <td>French/Arabic</td>
+                        <td><span class="badge badge-success">#1 Morocco</span></td>
+                    </tr>
+                    <tr>
+                        <td>Cadi Ayyad University</td>
+                        <td>Science/Tech</td>
+                        <td>$600 - $1,500</td>
+                        <td>French</td>
+                        <td><span class="badge badge-success">Top 500 World</span></td>
+                    </tr>
+                    <tr>
+                        <td>Al Akhawayn University</td>
+                        <td>All Programs</td>
+                        <td>$12,000 - $16,000</td>
+                        <td>English</td>
+                        <td><span class="badge badge-warning">#1 Private</span></td>
+                    </tr>
+                    <tr>
+                        <td>Mohammed VI Polytechnic</td>
+                        <td>Engineering/AI</td>
+                        <td>$8,000 - $12,000</td>
+                        <td>English/French</td>
+                        <td><span class="badge badge-warning">Research Hub</span></td>
+                    </tr>
+                    <tr>
+                        <td>Medical Schools</td>
+                        <td>Medicine/Dentistry</td>
+                        <td>$2,000 - $3,500</td>
+                        <td>French</td>
+                        <td><span class="badge badge-success">WHO Listed</span></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Monthly Living Costs in Morocco</h2>
+                <p>Real budget from current international students</p>
+            </div>
+            <div class="table-wrapper">
+                <table>
+                    <tr>
+                        <th>City</th>
+                        <th>Dormitory</th>
+                        <th>Shared Flat</th>
+                        <th>Food</th>
+                        <th>Total Budget</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Rabat</strong></td>
+                        <td>$100 - $180</td>
+                        <td>$150 - $300</td>
+                        <td>$100 - $150</td>
+                        <td><strong>$300 - $550</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Casablanca</strong></td>
+                        <td>$120 - $200</td>
+                        <td>$200 - $400</td>
+                        <td>$120 - $180</td>
+                        <td><strong>$400 - $700</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Marrakech</strong></td>
+                        <td>$80 - $150</td>
+                        <td>$120 - $250</td>
+                        <td>$90 - $140</td>
+                        <td><strong>$290 - $500</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Fez/Meknes</strong></td>
+                        <td>$70 - $120</td>
+                        <td>$100 - $200</td>
+                        <td>$80 - $120</td>
+                        <td><strong>$250 - $420</strong></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </section>
+    <section class="section" style="background: white;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Frequently Asked Questions</h2>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                    <span>Can I work while studying in Morocco?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">Yes, student visa allows 20 hours/week part-time work. Common jobs: English tutoring $8-15/hour, tourism $6-10/hour, freelancing online. No work permit needed.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                    <span>Are there scholarships for international students?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">AMCI Scholarship: Full tuition + $200/month + free dorm. Islamic Development Bank: Full funding for STEM. University merit scholarships: 25-100% tuition reduction. Apply March-June via Moroccan embassy.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                    <span>Is Morocco safe for international students?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">Morocco ranks safest in North Africa. Global Peace Index: Better than USA, Brazil, South Africa. 50,000+ international students. Female-friendly with dedicated university support. 24/7 campus security.</div>
+            </div>
+        </div>
+    </section>
+    <div class="container">
+        <div class="cta">
+            <h2>Ready to Study in Morocco?</h2>
+            <p>Get our free 2026 admission guide with step-by-step application process</p>
+            <a href="contact.html" class="btn"><i class="fas fa-download"></i> Get Free Guide</a>
+            <a href="morocco.html" class="btn"><i class="fas fa-university"></i> Browse Universities</a>
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Hijra Acc</h4>
+                    <p>Your trusted guide to studying abroad in Morocco. 10,000+ students helped since 2020.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <a href="index.html">Home</a>
+                    <a href="morocco.html">Universities</a>
+                    <a href="tuition-fees.html">Tuition Fees</a>
+                    <a href="tips.html">Practical Tips</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2026 Hijra Acc. All rights reserved. | Made with <i class="fas fa-heart" style="color: #e74c3c;"></i> for students</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
