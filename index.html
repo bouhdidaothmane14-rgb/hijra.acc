@@ -2,175 +2,211 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Study Platform Pro</title>
+<title>Study Platform Pro Max</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-body {
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(270deg, #0f2027, #203a43, #2c5364);
-  background-size: 600% 600%;
-  animation: bgMove 12s ease infinite;
-  color: white;
+*{margin:0;padding:0;box-sizing:border-box;font-family:sans-serif}
+
+body{
+  background:linear-gradient(270deg,#0f2027,#203a43,#2c5364);
+  background-size:600% 600%;
+  animation:bgMove 12s infinite;
+  color:white;
+}
+@keyframes bgMove{
+  0%{background-position:0%}
+  50%{background-position:100%}
+  100%{background-position:0%}
 }
 
-@keyframes bgMove {
-  0% {background-position:0% 50%;}
-  50% {background-position:100% 50%;}
-  100% {background-position:0% 50%;}
+header{
+  text-align:center;
+  padding:60px 20px;
+}
+header h1{font-size:45px}
+header p{opacity:.8}
+
+.search{
+  text-align:center;
+  margin:20px;
+}
+.search input{
+  padding:12px;
+  width:300px;
+  border:none;
+  border-radius:10px;
 }
 
-header {
-  text-align: center;
-  padding: 60px 20px;
+.container{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:20px;
+  padding:20px;
 }
 
-header h1 {
-  font-size: 40px;
+.card{
+  width:280px;
+  background:rgba(255,255,255,0.1);
+  backdrop-filter:blur(12px);
+  border-radius:15px;
+  overflow:hidden;
+  cursor:pointer;
+  transition:.4s;
+}
+.card:hover{transform:scale(1.05)}
+
+.card img{
+  width:100%;
+  height:170px;
+  object-fit:cover;
+}
+.card .content{padding:15px}
+
+.details{
+  display:none;
+  padding:40px;
+  animation:fade .5s;
+}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+
+.map{
+  width:100%;
+  height:300px;
+  margin-top:20px;
+  border-radius:15px;
+  border:none;
 }
 
-.cards {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  padding: 20px;
+.contact{
+  text-align:center;
+  padding:50px;
+}
+input,textarea{
+  display:block;
+  margin:10px auto;
+  padding:10px;
+  width:260px;
+  border:none;
+  border-radius:8px;
 }
 
-.card {
-  background: rgba(255,255,255,0.1);
-  backdrop-filter: blur(12px);
-  border-radius: 15px;
-  width: 260px;
-  overflow: hidden;
-  transition: 0.4s;
-  cursor: pointer;
+button{
+  padding:10px 20px;
+  border:none;
+  background:#00c6ff;
+  color:white;
+  border-radius:8px;
+  cursor:pointer;
 }
 
-.card:hover {
-  transform: translateY(-10px) scale(1.05);
-}
-
-.card img {
-  width: 100%;
-  height: 160px;
-  object-fit: cover;
-}
-
-.card-content {
-  padding: 15px;
-}
-
-button {
-  padding: 10px;
-  border: none;
-  background: #00c6ff;
-  color: white;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-.details {
-  display: none;
-  padding: 30px;
-  text-align: center;
-}
-
-.contact {
-  text-align: center;
-  padding: 50px;
-}
-
-input, textarea {
-  display: block;
-  margin: 10px auto;
-  padding: 10px;
-  width: 260px;
-  border-radius: 8px;
-  border: none;
-}
-
-footer {
-  text-align: center;
-  padding: 20px;
-  opacity: 0.7;
-}
+footer{text-align:center;padding:20px;opacity:.7}
 </style>
-
 </head>
 
 <body>
 
 <header>
   <h1>🎓 Study Platform</h1>
-  <p>Discover Universities in Morocco & USA</p>
+  <p>Explore Universities (Morocco & USA)</p>
 </header>
 
-<section class="cards">
+<div class="search">
+  <input type="text" placeholder="Search university..." onkeyup="searchUni(this.value)">
+</div>
 
-  <div class="card" onclick="showDetails('um5')">
-    <img src="https://source.unsplash.com/400x250/?university,morocco">
-    <div class="card-content">
-      <h3>Mohammed V University</h3>
-      <p>📍 Rabat - Free</p>
-    </div>
-  </div>
+<div class="container" id="cards"></div>
 
-  <div class="card" onclick="showDetails('harvard')">
-    <img src="https://source.unsplash.com/400x250/?harvard,usa">
-    <div class="card-content">
-      <h3>Harvard University</h3>
-      <p>📍 USA - Private</p>
-    </div>
-  </div>
-
-</section>
-
-<section id="details" class="details"></section>
+<div id="details" class="details"></div>
 
 <section class="contact">
-  <h2>📞 Contact Us</h2>
-  <p>Phone: 0709388607</p>
-  <p>Email: bouhdidaothmane14@gmail.com</p>
+  <h2>📞 Contact</h2>
+  <p>0709388607</p>
+  <p>bouhdidaothmane14@gmail.com</p>
 
-  <input type="text" placeholder="Your Name">
-  <input type="email" placeholder="Your Email">
+  <input placeholder="Name">
+  <input placeholder="Email">
   <textarea placeholder="Message"></textarea>
   <button>Send</button>
 </section>
 
-<footer>
-  <p>© 2026 Study Platform</p>
-</footer>
+<footer>© 2026 Study Platform</footer>
 
 <script>
-function showDetails(id) {
-  const details = document.getElementById("details");
-  details.style.display = "block";
-
-  if(id === "um5") {
-    details.innerHTML = `
-      <h2>Mohammed V University</h2>
-      <p>Located in Rabat, Morocco.</p>
-      <p>Public university with multiple faculties.</p>
-      <p>Offers degrees in science, law, economics and more.</p>
-    `;
+const universities = [
+  {
+    name:"Mohammed V University",
+    country:"Morocco",
+    type:"Public",
+    location:"Rabat",
+    img:"https://source.unsplash.com/400x250/?morocco,university",
+    map:"https://maps.google.com/maps?q=rabat&t=&z=13&ie=UTF8&iwloc=&output=embed",
+    desc:"Top public university in Morocco with many faculties."
+  },
+  {
+    name:"Hassan II University",
+    country:"Morocco",
+    type:"Public",
+    location:"Casablanca",
+    img:"https://source.unsplash.com/400x250/?casablanca,university",
+    map:"https://maps.google.com/maps?q=casablanca&t=&z=13&output=embed",
+    desc:"Major university in Casablanca."
+  },
+  {
+    name:"Harvard University",
+    country:"USA",
+    type:"Private",
+    location:"Massachusetts",
+    img:"https://source.unsplash.com/400x250/?harvard",
+    map:"https://maps.google.com/maps?q=harvard&t=&z=13&output=embed",
+    desc:"One of the best universities in the world."
+  },
+  {
+    name:"Stanford University",
+    country:"USA",
+    type:"Private",
+    location:"California",
+    img:"https://source.unsplash.com/400x250/?stanford",
+    map:"https://maps.google.com/maps?q=stanford&t=&z=13&output=embed",
+    desc:"Top tech and research university."
   }
+];
 
-  if(id === "harvard") {
-    details.innerHTML = `
-      <h2>Harvard University</h2>
-      <p>Located in the USA.</p>
-      <p>One of the top universities in the world.</p>
-      <p>Offers a wide range of programs and research opportunities.</p>
-    `;
-  }
-
-  window.scrollTo({
-    top: details.offsetTop,
-    behavior: "smooth"
+function display(list){
+  const container=document.getElementById("cards");
+  container.innerHTML="";
+  list.forEach((u,i)=>{
+    container.innerHTML+=`
+    <div class="card" onclick="show(${i})">
+      <img src="${u.img}">
+      <div class="content">
+        <h3>${u.name}</h3>
+        <p>${u.location} - ${u.type}</p>
+      </div>
+    </div>`;
   });
 }
+
+function show(i){
+  const u=universities[i];
+  const d=document.getElementById("details");
+  d.style.display="block";
+  d.innerHTML=`
+    <h2>${u.name}</h2>
+    <p>${u.desc}</p>
+    <p>${u.location} - ${u.country}</p>
+    <iframe class="map" src="${u.map}"></iframe>
+  `;
+  window.scrollTo({top:d.offsetTop,behavior:"smooth"});
+}
+
+function searchUni(val){
+  const filtered=universities.filter(u=>u.name.toLowerCase().includes(val.toLowerCase()));
+  display(filtered);
+}
+
+display(universities);
 </script>
 
 </body>
