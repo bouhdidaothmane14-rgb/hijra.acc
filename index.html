@@ -1,958 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UniGlobal - Morocco & USA University Directory</title>
-    <meta name="description" content="Discover top universities in Morocco and the United States. Complete information, programs, admissions, and interactive maps.">
-    
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Leaflet CSS for Maps -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<title>Study Platform Pro</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(270deg, #0f2027, #203a43, #2c5364);
+  background-size: 600% 600%;
+  animation: bgMove 12s ease infinite;
+  color: white;
+}
+
+@keyframes bgMove {
+  0% {background-position:0% 50%;}
+  50% {background-position:100% 50%;}
+  100% {background-position:0% 50%;}
+}
+
+header {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+header h1 {
+  font-size: 40px;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.card {
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(12px);
+  border-radius: 15px;
+  width: 260px;
+  overflow: hidden;
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-10px) scale(1.05);
+}
+
+.card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 15px;
+}
+
+button {
+  padding: 10px;
+  border: none;
+  background: #00c6ff;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.details {
+  display: none;
+  padding: 30px;
+  text-align: center;
+}
+
+.contact {
+  text-align: center;
+  padding: 50px;
+}
+
+input, textarea {
+  display: block;
+  margin: 10px auto;
+  padding: 10px;
+  width: 260px;
+  border-radius: 8px;
+  border: none;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  opacity: 0.7;
+}
+</style>
 
-        :root {
-            --primary: #6366f1;
-            --primary-dark: #4f46e5;
-            --secondary: #10b981;
-            --accent: #f59e0b;
-            --glass-bg: rgba(255, 255, 255, 0.1);
-            --glass-border: rgba(255, 255, 255, 0.2);
-            --shadow: 0 25px 45px rgba(0,0,0,0.1);
-            --shadow-lg: 0 35px 60px rgba(0,0,0,0.15);
-            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --gradient-dark: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
-        }
-
-        [data-theme="dark"] {
-            --glass-bg: rgba(0, 0, 0, 0.3);
-            --glass-border: rgba(255, 255, 255, 0.1);
-            --bg-primary: #0f0f23;
-            --bg-secondary: #1a1a2e;
-            --text-primary: #ffffff;
-            --text-secondary: #a0a0a0;
-            --card-bg: rgba(26, 26, 46, 0.8);
-        }
-
-        [data-theme="light"] {
-            --bg-primary: #f8fafc;
-            --bg-secondary: #ffffff;
-            --text-primary: #1e293b;
-            --text-secondary: #64748b;
-            --card-bg: rgba(255, 255, 255, 0.9);
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            overflow-x: hidden;
-            line-height: 1.6;
-            transition: all 0.3s ease;
-        }
-
-        /* Glassmorphism */
-        .glass {
-            background: var(--glass-bg);
-            backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
-            border-radius: 24px;
-            box-shadow: var(--shadow);
-        }
-
-        /* Loading Animation */
-        .loader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--gradient);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            transition: opacity 0.5s ease;
-        }
-
-        .loader.hidden {
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        .spinner {
-            width: 60px;
-            height: 60px;
-            border: 4px solid rgba(255,255,255,0.2);
-            border-top: 4px solid white;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        /* Header */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            padding: 1rem 0;
-            backdrop-filter: blur(20px);
-        }
-
-        nav {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 800;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            color: var(--text-primary);
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--gradient);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .theme-toggle {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            color: var(--text-primary);
-            padding: 0.8rem 1.2rem;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(20px);
-        }
-
-        .theme-toggle:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: var(--gradient);
-            z-index: 1;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 900px;
-            padding: 0 2rem;
-            animation: fadeInUp 1s ease;
-        }
-
-        .hero h1 {
-            font-size: clamp(2.5rem, 5vw, 4.5rem);
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(45deg, #fff, #f0f0f0);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2.5rem;
-            color: var(--text-secondary);
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 1rem 2.5rem;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            backdrop-filter: blur(20px);
-        }
-
-        .btn-primary {
-            background: var(--gradient);
-            color: white;
-            box-shadow: var(--shadow);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: white;
-            border: 2px solid rgba(255,255,255,0.3);
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255,255,255,0.1);
-            border-color: rgba(255,255,255,0.5);
-            transform: translateY(-3px);
-        }
-
-        /* Floating Elements */
-        .floating {
-            position: absolute;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .floating:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
-        .floating:nth-child(2) { top: 60%; right: 15%; animation-delay: 2s; }
-        .floating:nth-child(3) { bottom: 20%; left: 20%; animation-delay: 4s; }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-
-        /* Search Section */
-        .search-section {
-            padding: 8rem 2rem 4rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .search-container {
-            background: var(--card-bg);
-            padding: 3rem;
-            border-radius: 24px;
-            margin-bottom: 4rem;
-            box-shadow: var(--shadow);
-        }
-
-        .search-box {
-            display: flex;
-            gap: 1rem;
-            max-width: 600px;
-            margin: 0 auto 2rem;
-            flex-wrap: wrap;
-        }
-
-        .search-input {
-            flex: 1;
-            padding: 1.2rem 1.5rem;
-            border: 2px solid var(--glass-border);
-            border-radius: 16px;
-            background: var(--glass-bg);
-            color: var(--text-primary);
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(20px);
-        }
-
-        .search-input:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
-            transform: translateY(-2px);
-        }
-
-        .filter-tabs {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-bottom: 3rem;
-        }
-
-        .filter-tab {
-            padding: 0.8rem 1.5rem;
-            background: var(--glass-bg);
-            border: 2px solid var(--glass-border);
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(20px);
-        }
-
-        .filter-tab.active {
-            background: var(--primary);
-            border-color: var(--primary);
-            color: white;
-            transform: translateY(-2px);
-        }
-
-        /* Universities Grid */
-        .universities-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-            gap: 2rem;
-            padding: 2rem 0;
-        }
-
-        .uni-card {
-            background: var(--card-bg);
-            border-radius: 24px;
-            overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            cursor: pointer;
-            position: relative;
-            box-shadow: var(--shadow);
-            backdrop-filter: blur(20px);
-        }
-
-        .uni-card:hover {
-            transform: translateY(-15px) rotateX(5deg) rotateY(5deg);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .uni-image {
-            height: 220px;
-            background: var(--gradient);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .uni-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .uni-card:hover .uni-image img {
-            transform: scale(1.1);
-        }
-
-        .uni-logo {
-            position: absolute;
-            top: 1rem;
-            left: 1rem;
-            width: 60px;
-            height: 60px;
-            background: white;
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-
-        .uni-content {
-            padding: 1.5rem;
-        }
-
-        .uni-name {
-            font-size: 1.4rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            color: var(--text-primary);
-        }
-
-        .uni-location {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--secondary);
-            font-weight: 500;
-            margin-bottom: 0.5rem;
-        }
-
-        .uni-type {
-            display: inline-block;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        .free { background: rgba(16, 185, 129, 0.2); color: var(--secondary); }
-        .private { background: rgba(99, 102, 241, 0.2); color: var(--primary); }
-
-        .uni-desc {
-            color: var(--text-secondary);
-            line-height: 1.5;
-            margin-bottom: 1rem;
-        }
-
-        /* Detail Page */
-        .detail-hero {
-            height: 60vh;
-            background: var(--gradient);
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-        }
-
-        .detail-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
-            display: grid;
-            grid-template-columns: 1fr 400px;
-            gap: 4rem;
-        }
-
-        .detail-main {
-            background: var(--card-bg);
-            padding: 3rem;
-            border-radius: 24px;
-            box-shadow: var(--shadow);
-        }
-
-        .detail-sidebar {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-
-        .map-container {
-            height: 300px;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-        }
-
-        /* Contact Section */
-        .contact-section {
-            padding: 8rem 2rem;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .contact-card {
-            background: var(--card-bg);
-            padding: 4rem;
-            border-radius: 24px;
-            box-shadow: var(--shadow-lg);
-            text-align: center;
-        }
-
-        .contact-info {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 1.5rem;
-            background: var(--glass-bg);
-            border-radius: 16px;
-            transition: transform 0.3s ease;
-        }
-
-        .contact-item:hover {
-            transform: translateY(-5px);
-        }
-
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .form-group {
-            margin-bottom: 2rem;
-            position: relative;
-        }
-
-        .form-input {
-            width: 100%;
-            padding: 1.2rem 1rem;
-            background: var(--glass-bg);
-            border: 2px solid var(--glass-border);
-            border-radius: 16px;
-            color: var(--text-primary);
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(20px);
-        }
-
-        .form-input:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
-            transform: translateY(-2px);
-        }
-
-        .form-input::placeholder {
-            color: var(--text-secondary);
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        .animate {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 0.8s ease;
-        }
-
-        .animate.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .detail-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .universities-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .search-box {
-                flex-direction: column;
-            }
-        }
-
-        /* Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: var(--bg-secondary);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--primary);
-            border-radius: 4px;
-        }
-    </style>
 </head>
-<body data-theme="dark">
 
-    <!-- Loading Screen -->
-    <div class="loader" id="loader">
-        <div class="spinner"></div>
+<body>
+
+<header>
+  <h1>🎓 Study Platform</h1>
+  <p>Discover Universities in Morocco & USA</p>
+</header>
+
+<section class="cards">
+
+  <div class="card" onclick="showDetails('um5')">
+    <img src="https://source.unsplash.com/400x250/?university,morocco">
+    <div class="card-content">
+      <h3>Mohammed V University</h3>
+      <p>📍 Rabat - Free</p>
     </div>
+  </div>
 
-    <!-- Header -->
-    <header class="glass">
-        <nav>
-            <div class="logo">Uni<span style="color: var(--secondary);">Global</span></div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#morocco">Morocco</a></li>
-                <li><a href="#usa">USA</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <button class="theme-toggle" id="themeToggle">
-                <i class="fas fa-moon"></i>
-            </button>
-        </nav>
-    </header>
-
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="floating" style="font-size: 3rem; color: rgba(255,255,255,0.1);">
-            <i class="fas fa-graduation-cap"></i>
-        </div>
-        <div class="floating" style="font-size: 2.5rem; color: rgba(255,255,255,0.1);">
-            <i class="fas fa-book-open"></i>
-        </div>
-        <div class="floating" style="font-size: 3rem; color: rgba(255,255,255,0.1);">
-            <i class="fas fa-globe"></i>
-        </div>
-        
-        <div class="hero-content">
-            <h1>Your Gateway to World-Class Education</h1>
-            <p>Discover premier universities in Morocco and the United States. Comprehensive information, interactive maps, and personalized guidance for your academic journey.</p>
-            <div class="cta-buttons">
-                <a href="#search" class="btn btn-primary">
-                    <i class="fas fa-search"></i>
-                    Explore Universities
-                </a>
-                <a href="#contact" class="btn btn-secondary">
-                    <i class="fas fa-rocket"></i>
-                    Start Your Journey
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Search Section -->
-    <section id="search" class="search-section">
-        <div class="search-container animate">
-            <div class="search-box">
-                <input type="text" class="search-input" id="searchInput" placeholder="Search universities by name...">
-                <button class="btn btn-primary" id="searchBtn">
-                    <i class="fas fa-search"></i>
-                </button>
-            </div>
-            <div class="filter-tabs" id="filterTabs">
-                <div class="filter-tab active" data-filter="all">All Universities</div>
-                <div class="filter-tab" data-filter="morocco">Morocco 🇲🇦</div>
-                <div class="filter-tab" data-filter="usa">USA 🇺🇸</div>
-                <div class="filter-tab" data-filter="free">Free</div>
-                <div class="filter-tab" data-filter="private">Private</div>
-            </div>
-        </div>
-
-        <div class="universities-grid" id="universitiesGrid">
-            <!-- Universities will be populated by JavaScript -->
-        </div>
-    </section>
-
-    <!-- University Detail Modal -->
-    <div id="detailModal" class="modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 2000; backdrop-filter: blur(10px);">
-        <div class="glass" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); max-width: 90%; max-height: 90%; overflow-y: auto;">
-            <!-- Detail content populated by JS -->
-        </div>
+  <div class="card" onclick="showDetails('harvard')">
+    <img src="https://source.unsplash.com/400x250/?harvard,usa">
+    <div class="card-content">
+      <h3>Harvard University</h3>
+      <p>📍 USA - Private</p>
     </div>
+  </div>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact-section">
-        <div class="contact-card animate">
-            <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Get In Touch</h2>
-            <p style="color: var(--text-secondary); margin-bottom: 3rem; font-size: 1.2rem;">Ready to start your educational journey? Contact our expert advisors today.</p>
-            
-            <div class="contact-info">
-                <div class="contact-item">
-                    <i class="fas fa-phone" style="font-size: 1.5rem; color: var(--secondary); width: 40px;"></i>
-                    <div>
-                        <div style="font-weight: 600; margin-bottom: 0.25rem;">Phone</div>
-                        <div>0709 38 86 07</div>
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-envelope" style="font-size: 1.5rem; color: var(--primary); width: 40px;"></i>
-                    <div>
-                        <div style="font-weight: 600; margin-bottom: 0.25rem;">Email</div>
-                        <div>bouhdidaothmane14@gmail.com</div>
-                    </div>
-                </div>
-            </div>
+</section>
 
-            <form class="contact-form" id="contactForm">
-                <div class="form-group">
-                    <input type="text" class="form-input" placeholder="Your Name" required>
-                </div>
-                <div class="form-group">
-                    <input type="email" class="form-input" placeholder="Your Email" required>
-                </div>
-                <div class="form-group">
-                    <textarea class="form-input" rows="5" placeholder="Your Message" required></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1.2rem;">
-                    <i class="fas fa-paper-plane"></i>
-                    Send Message
-                </button>
-            </form>
-        </div>
-    </section>
+<section id="details" class="details"></section>
 
-    <!-- Leaflet JS for Maps -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    
-    <script>
-        // University Data (Real Moroccan & US Universities)
-        const universities = [
-            // Morocco Public Universities
-            {
-                id: 1,
-                name: "Mohammed V University",
-                logo: "🎓",
-                image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&h=400&fit=crop",
-                country: "morocco",
-                type: "free",
-                location: "Rabat, Morocco",
-                coords: [33.9716, -6.8498],
-                description: "Leading public research university in Rabat with 12 faculties and schools offering comprehensive programs.",
-                programs: ["Engineering", "Medicine", "Law", "Sciences", "Economics"],
-                tuition: "Free (Public)",
-                contact: "+212 537 77 24 24",
-                website: "www.um5.ac.ma"
-            },
-            {
-                id: 2,
-                name: "Cadi Ayyad University",
-                logo: "🎓",
-                image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800&h=400&fit=crop",
-                country: "morocco",
-                type: "free",
-                location: "Marrakech, Morocco",
-                coords: [31.6295, -7.9811],
-                description: "Major public university with 8 faculties, 2 schools, and 46,000+ students across multiple campuses.",
-                programs: ["Sciences", "Law", "Letters", "Medicine", "Engineering"],
-                tuition: "Free (Public)",
-                contact: "+212 524 43 44 00",
-                website: "www.uca.ma"
-            },
-            {
-                id: 3,
-                name: "Sidi Mohamed Ben Abdellah University",
-                logo: "🎓",
-                image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=400&fit=crop",
-                country: "morocco",
-                type: "free",
-                location: "Fez, Morocco",
-                coords: [34.0373, -4.9793],
-                description: "Prominent public university in Fez with diverse academic programs and research centers.",
-                programs: ["Engineering", "Sciences", "Medicine", "Law", "Economics"],
-                tuition: "Free (Public)",
-                contact: "+212 535 94 50 00",
-                website: "www.usmba.ac.ma"
-            },
+<section class="contact">
+  <h2>📞 Contact Us</h2>
+  <p>Phone: 0709388607</p>
+  <p>Email: bouhdidaothmane14@gmail.com</p>
 
-            // Morocco Private Universities
-            {
-                id: 4,
-                name: "Université Internationale de Rabat (UIR)",
-                logo: "🎓",
-                image: "https://images.unsplash.com/photo-1521747116042-5a810fda24e9?w=800&h=400&fit=crop",
-                country: "morocco",
-                type: "private",
-                location: "Rabat, Morocco",
-                coords: [34.0169, -6.8369],
-                description: "Elite private university known for engineering, business, and aerospace programs with international partnerships.",
-                programs: ["Aerospace Engineering", "Computer Science", "Business", "Architecture"],
-                tuition: "MAD 80,000 - 120,000/year",
-                contact: "+212 537 71 88 00",
-                website: "www.uir.ac.ma"
-            },
-            {
-                id: 5,
-                name: "ESCA - École de Management",
-                logo: "💼",
-                image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=400&fit=crop",
-                country: "morocco",
-                type: "private",
-                location: "Casablanca, Morocco",
-                coords: [33.5731, -7.5898],
-                description: "Top business school offering MBA, Executive MBA, and management programs with international accreditation.",
-                programs: ["MBA", "Executive MBA", "Management", "Marketing"],
-                tuition: "MAD 90,000 - 150,000/year",
-                contact: "+212 522 25 29 00",
-                website: "www.esca.ma"
-            },
+  <input type="text" placeholder="Your Name">
+  <input type="email" placeholder="Your Email">
+  <textarea placeholder="Message"></textarea>
+  <button>Send</button>
+</section>
 
-            // USA Universities
-            {
-                id: 6,
-                name: "Harvard University",
-                logo: "🎓",
-                image: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=800&h=400&fit=crop",
-                country: "usa",
-                type: "private",
-                location: "Cambridge, MA",
-                coords: [42.3770, -71.1167],
-                description: "World's most prestigious university founded in 1636, renowned for excellence across all disciplines.",
-                programs: ["Law", "Medicine", "Business", "Engineering", "Arts & Sciences"],
-                tuition: "$59,000/year",
-                contact: "+1 617-495-1000",
-                website: "www.harvard.edu"
-            },
-            {
-                id: 7,
-                name: "Stanford University",
-                logo: "🎓",
-                image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&h=400&fit=crop",
-                country: "usa",
-                type: "private",
-                location: "Stanford, CA",
-                coords: [37.4275, -122.1697],
-                description: "Leading research university in Silicon Valley, powerhouse in technology and entrepreneurship.",
-                programs: ["Computer Science", "Engineering", "Business", "Medicine"],
-                tuition: "$62,000/year",
-                contact: "+1 650-723-2300",
-                website: "www.stanford.edu"
-            },
-            {
-                id: 8,
-                name: "MIT (Massachusetts Institute of Technology)",
-                logo: "🔬",
-                image: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=800&h=400&fit=crop",
-                country: "usa",
-                type: "private",
-                location: "Cambridge, MA",
-                coords: [42.3601, -71.0942],
-                description: "Global leader in science, technology, engineering, and mathematics education and research.",
-                programs: ["Engineering", "Computer Science", "Physics", "Economics"],
-                tuition: "$60,000/year",
-                contact: "+1 617-253-1000",
-                website: "www.mit.edu"
-            },
-            {
-                id: 9,
-                name: "University of California, Berkeley",
-                logo: "🎓",
-                image: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800&h=400&fit=crop",
-                country: "usa",
-                type: "public",
-                location: "Berkeley, CA",
-                coords: [37.8719, -122.2585],
-                description: "Top public university renowned for research excellence and academic rigor.",
-                programs: ["Engineering", "Computer Science", "Business", "Law"],
-                tuition: "$15,000/year (in-state)",
-                contact: "+1 510-642-6000",
-                website: "www.berkeley.edu"
-            }
-        ];
+<footer>
+  <p>© 2026 Study Platform</p>
+</footer>
 
-        // DOM Elements
-        const loader = document.getElementById('loader');
-        const themeToggle = document.getElementById('themeToggle');
-        const searchInput = document.getElementById('searchInput');
-        const searchBtn = document.getElementById('searchBtn');
-        const filterTabs = document.querySelectorAll('.filter-tab');
-        const universitiesGrid = document.getElementById('universitiesGrid');
-        const detailModal = document.getElementById('detailModal');
-        const contactForm = document.getElementById('contactForm');
+<script>
+function showDetails(id) {
+  const details = document.getElementById("details");
+  details.style.display = "block";
 
-        // Initialize
-        let currentFilter = 'all';
+  if(id === "um5") {
+    details.innerHTML = `
+      <h2>Mohammed V University</h2>
+      <p>Located in Rabat, Morocco.</p>
+      <p>Public university with multiple faculties.</p>
+      <p>Offers degrees in science, law, economics and more.</p>
+    `;
+  }
 
-        // Loading Animation
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                loader.classList.add('hidden');
-            }, 1000);
-        });
+  if(id === "harvard") {
+    details.innerHTML = `
+      <h2>Harvard University</h2>
+      <p>Located in the USA.</p>
+      <p>One of the top universities in the world.</p>
+      <p>Offers a wide range of programs and research opportunities.</p>
+    `;
+  }
 
-        // Theme Toggle
-        themeToggle.addEventListener('click', () => {
-            const body = document.body;
-            const currentTheme = body.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            
-            body.setAttribute('data-theme', newTheme);
-            themeToggle.innerHTML = newTheme === 'dark' 
-                ? '<i class="fas fa-moon"></i>' 
-                : '<i class="fas fa-sun"></i>';
-            
-            localStorage.setItem('theme', newTheme);
-        });
+  window.scrollTo({
+    top: details.offsetTop,
+    behavior: "smooth"
+  });
+}
+</script>
 
-        // Load saved theme
-        const savedTheme = localStorage.getItem('theme') || 'dark';
-        document.body.setAttribute('data-theme', savedTheme);
-        themeToggle.innerHTML = savedTheme === 'dark' 
-            ? '<i class="fas fa-moon"></i>' 
-            : '<i class="fas fa-sun"></i>';
-
-        // Render Universities
-        function renderUniversities(unis) {
-            universitiesGrid.innerHTML = unis.map(uni => `
-                <div class="uni-card animate" data-country="${uni.country}" data-type="${uni.type}" data-id="${uni.id}">
-                    <div class="uni-image">
-                        <div class="uni-logo">${uni.logo}</div>
-                        <img src="${uni.image}" alt="${uni.name}" loading="lazy">
-                    </div>
-                    <div class="uni-content">
-                        <h3 class="uni-name">${
+</body>
+</html>
