@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Costs in Morocco 2026 | Tuition Fees & Living Expenses - Hijra Acc</title>
+    <meta name="description" content="Complete 2026 guide to university tuition fees, living costs, and scholarships in Morocco for international students. Compare public vs private universities.">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --primary: #667eea;
+            --secondary: #764ba2;
+            --dark: #2c3e50;
+            --success: #27ae60;
+            --warning: #f39c12;
+            --danger: #e74c3c;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; line-height: 1.7; color: #333; background: #f8f9fa; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        
+        /* Header */
+        header { background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); color: white; padding: 1rem 0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+        .nav { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.8rem; font-weight: 800; display: flex; align-items: center; gap: 10px; }
+        .back-btn { background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); color: white; padding: 12px 25px; border-radius: 50px; text-decoration: none; transition: 0.3s; border: 1px solid rgba(255,255,255,0.2); }
+        .back-btn:hover { background: rgba(255,255,255,0.25); transform: translateY(-2px); }
+        
+        /* Hero */
+        .hero { background: linear-gradient(135deg, rgba(102,126,234,0.95) 0%, rgba(118,75,162,0.95) 100%), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80') center/cover; padding: 100px 0; text-align: center; color: white; }
+        .hero h1 { font-size: 3rem; font-weight: 800; margin-bottom: 20px; animation: fadeInUp 0.8s; }
+        .hero p { font-size: 1.2rem; max-width: 700px; margin: 0 auto 30px; opacity: 0.9; animation: fadeInUp 1s; }
+        .stats { display: flex; justify-content: center; gap: 40px; margin-top: 40px; flex-wrap: wrap; }
+        .stat-box { text-align: center; animation: fadeInUp 1.2s; }
+        .stat-box h3 { font-size: 2.5rem; font-weight: 800; }
+        .stat-box p { font-size: 0.9rem; opacity: 0.8; }
+        
+        /* Content Sections */
+        .section { padding: 80px 0; }
+        .section-title { text-align: center; margin-bottom: 60px; }
+        .section-title h2 { font-size: 2.5rem; color: var(--dark); margin-bottom: 15px; font-weight: 700; }
+        .section-title p { color: #666; max-width: 600px; margin: 0 auto; }
+        
+        /* Cards */
+        .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 60px; }
+        .price-card { background: white; border-radius: 20px; padding: 40px 30px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); transition: 0.4s; border-top: 5px solid var(--primary); position: relative; overflow: hidden; }
+        .price-card:hover { transform: translateY(-10px); box-shadow: 0 20px 60px rgba(0,0,0,0.15); }
+        .price-card.featured { border-top-color: var(--warning); transform: scale(1.05); }
+        .price-card.featured::before { content: "MOST POPULAR"; position: absolute; top: 20px; right: -35px; background: var(--warning); color: white; padding: 5px 40px; transform: rotate(45deg); font-size: 0.7rem; font-weight: 700; }
+        .price-card h3 { color: var(--primary); font-size: 1.5rem; margin-bottom: 15px; }
+        .price { font-size: 2.5rem; font-weight: 800; color: var(--dark); margin: 20px 0; }
+        .price span { font-size: 1rem; color: #666; font-weight: 400; }
+        .features { list-style: none; margin: 25px 0; }
+        .features li { padding: 10px 0; border-bottom: 1px solid #eee; display: flex; align-items: center; gap: 10px; }
+        .features li i { color: var(--success); }
+        
+        /* Table */
+        .table-wrapper { background: white; border-radius: 20px; padding: 40px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; }
+        th { background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); color: white; padding: 20px; text-align: left; font-weight: 600; }
+        td { padding: 18px 20px; border-bottom: 1px solid #eee; }
+        tr:hover { background: #f8f9ff; }
+        .badge { display: inline-block; padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; }
+        .badge-success { background: #d4edda; color: #155724; }
+        .badge-warning { background: #fff3cd; color: #856404; }
+        
+        /* FAQ */
+        .faq-item { background: white; border-radius: 15px; margin-bottom: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); overflow: hidden; }
+        .faq-question { padding: 25px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; color: var(--dark); }
+        .faq-answer { padding: 0 25px 25px; color: #666; display: none; }
+        .faq-item.active .faq-answer { display: block; }
+        
+        /* CTA */
+        .cta { background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); color: white; text-align: center; padding: 80px 0; border-radius: 20px; margin: 60px 0; }
+        .cta h2 { font-size: 2.5rem; margin-bottom: 20px; }
+        .btn { display: inline-block; background: white; color: var(--primary); padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: 600; transition: 0.3s; margin: 10px; }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+        
+        /* Footer */
+        footer { background: var(--dark); color: white; padding: 50px 0 30px; }
+        .footer-grid { display: grid; grid-template-columns
